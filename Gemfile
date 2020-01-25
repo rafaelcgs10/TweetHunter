@@ -58,3 +58,5 @@ gem 'figaro'
 gem 'randumb'
 
 gem 'irb', require: false
+
+gem 'solargraph', group: :development
