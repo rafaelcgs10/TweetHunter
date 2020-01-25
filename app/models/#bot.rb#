@@ -1,0 +1,16 @@
+class Bot < ApplicationRecord
+  def self.search_words(words)
+    CLIENT.search(words, lang: 'en').first
+  end
+
+  def self.search_hashtag(hashtag)
+    '0'.split(',').length
+    CLIENT.search(hashtag).take(10).each { |t|
+      Tweet.create(name: t.user.screen_name,
+                   tweet_id: t.id.to_s, hashtag: hashtag, content: t.text,
+                   date: t.created_at)
+
+      logger.info 'Found tweet'
+    }
+  end
+end

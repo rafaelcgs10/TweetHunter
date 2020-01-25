@@ -4,7 +4,7 @@
 class TweetSearchJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    # Do something later
+  def perform
+    logger.info('Say hi')
   end
 end
