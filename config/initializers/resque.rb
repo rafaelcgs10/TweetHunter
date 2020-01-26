@@ -1,7 +1,16 @@
 require 'resque/scheduler'
 
 Resque.redis = 'localhost:6379'
-Resque.redis.namespace = "resque:SchedulerExample"
+Resque.redis.namespace = "resque:Scheduler"
+
+if Rails.env.development?
+  Resque.redis = Redis.new(:host => 'localhost', :port => '6379')
+else
+  uri = URI.parse(ENV['REDISTOGO_URL'])  
+  REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+  
+  Resque.redis = REDIS
+end
 
 # If you want to be able to dynamically change the schedule,
 # uncomment this line.  A dynamic schedule can be updated via the
