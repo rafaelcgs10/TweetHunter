@@ -1,5 +1,5 @@
 twitter:
-  every: 5s
+  every: 30s
   class: TweetSearchJob
   args:
   queue: twitter
