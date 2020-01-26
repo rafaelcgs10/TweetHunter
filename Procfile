@@ -1,2 +1,1 @@
-resque: QUEUE=* bundle exec rake resque:work
-resque: QUEUE=* bundle exec rake resque:scheduler
+resque: QUEUE=* bundle exec rake resque:work & QUEUE=* bundle exec rake resque:scheduler
