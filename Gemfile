@@ -61,3 +61,5 @@ gem 'solargraph', group: :development
 
 gem 'resque'
 gem 'resque-scheduler'
+
+gem "rename"
