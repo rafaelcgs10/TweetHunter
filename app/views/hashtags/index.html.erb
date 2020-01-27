@@ -1,0 +1,16 @@
+<h1>Listing hashtags been hunted</h1>
+ 
+<%= link_to 'New hashtag', new_hashtag_path %>
+
+<table>
+  <tr>
+    <th>Hashtag</th>
+    <th></th>
+  </tr>
+ 
+  <% @hashtags.each do |tag| %>
+    <tr>
+      <td><%= tag.hashtag %></td>
+    </tr>
+  <% end %>
+</table>
