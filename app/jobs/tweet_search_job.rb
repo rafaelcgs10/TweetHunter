@@ -6,10 +6,8 @@ class TweetSearchJob
 
   def self.perform
     search_hashtag('#UNITYDAYS2020')
-    puts "Doing my job"
+    puts 'Hunting tweets'
   end
-
-  private
 
   def self.search_hashtag(hashtag)
     CLIENT.search(hashtag).take(10).each do |t|
