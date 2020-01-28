@@ -24,7 +24,7 @@ class HashtagsController < ApplicationController
   def create
     @hashtag = Hashtag.new(hastag_params)
     if @hashtag.save
-      TweetSearchJob.search_hashtag(@hashtag.hashtag, 10)
+      TweetSearchJob.search_hashtag(@hashtag.hashtag, 30)
       redirect_to @hashtag
     else
       render 'new'
