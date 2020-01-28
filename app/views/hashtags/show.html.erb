@@ -7,9 +7,14 @@
 
 <h2>Tweets</h2>
 <table>
-<tr>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Content</th>
+      <th>Date</th>
+    </tr>
+  </thead>
   <%= render partial: "tweets/tweet", collection: @tweets %>
-</tr>
 </table>
 
 <%= link_to 'Back', hashtags_path %>
