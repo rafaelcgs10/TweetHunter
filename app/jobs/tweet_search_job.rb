@@ -5,15 +5,19 @@ class TweetSearchJob
   @queue = :twitter
 
   def self.perform
-    search_hashtag('#UNITYDAYS2020')
-    puts 'Hunting tweets'
+    @hashtags = Hashtag.all
+
+    @hashtags.each do |tag|
+      search_hashtag(tag.hashtag)
+    end
   end
 
   def self.search_hashtag(hashtag)
+    puts "Hunting hashtag #{hashtag}"
     CLIENT.search(hashtag).take(10).each do |t|
       Tweet.create(name: t.user.screen_name,
                    tweet_id: t.id.to_s, hashtag: hashtag, content: t.text,
-                   date: t.created_at, tweet_mode: 'extended')
+                   date: t.created_at)
     end
   end
 end

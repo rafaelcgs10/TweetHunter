@@ -6,6 +6,10 @@
 </p>
 
 <h2>Tweets</h2>
-<%= render partial: "tweets/tweet", collection: @tweets %>
+<table>
+<tr>
+  <%= render partial: "tweets/tweet", collection: @tweets %>
+</tr>
+</table>
 
 <%= link_to 'Back', hashtags_path %>
