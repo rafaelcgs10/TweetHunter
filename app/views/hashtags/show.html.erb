@@ -2,3 +2,8 @@
   <strong>Hashtag:</strong>
   <%= @hashtag.hashtag %>
 </p>
+
+<h2>Tweets</h2>
+<%= render partial: "tweets/tweet", collection: @tweets %>
+
+<%= link_to 'Back', hashtags_path %>

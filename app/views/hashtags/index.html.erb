@@ -11,6 +11,7 @@
   <% @hashtags.each do |tag| %>
     <tr>
       <td><%= tag.hashtag %></td>
+      <td><%= link_to 'Show', hashtag_path(tag) %></td>
     </tr>
   <% end %>
 </table>

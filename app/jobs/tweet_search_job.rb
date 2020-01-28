@@ -13,7 +13,7 @@ class TweetSearchJob
     CLIENT.search(hashtag).take(10).each do |t|
       Tweet.create(name: t.user.screen_name,
                    tweet_id: t.id.to_s, hashtag: hashtag, content: t.text,
-                   date: t.created_at)
+                   date: t.created_at, tweet_mode: 'extended')
     end
   end
 end
