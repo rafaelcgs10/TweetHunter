@@ -3,7 +3,7 @@ require 'resque/scheduler'
 Resque.redis = 'localhost:6379'
 Resque.redis.namespace = "resque:Scheduler"
 
-if Rails.env.development?
+if Rails.env.development? || Rails.env.test?
   Resque.redis = Redis.new(:host => 'localhost', :port => '6379')
 else
   uri = URI.parse(ENV['REDISTOGO_URL'])  
