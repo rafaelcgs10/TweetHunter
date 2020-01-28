@@ -3,6 +3,10 @@ class HashtagsController < ApplicationController
     @hashtags = Hashtag.all
   end
 
+  def new
+    @hashtag = Hashtag.new
+  end
+
   def show
     @hashtag = Hashtag.find(params[:id])
     @tweets = Tweet.where(hashtag: @hashtag.hashtag)

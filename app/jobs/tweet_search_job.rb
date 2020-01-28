@@ -16,7 +16,7 @@ class TweetSearchJob
     puts "Hunting hashtag #{hashtag}"
     CLIENT.search(hashtag).take(number).each do |t|
       Tweet.create(name: t.user.screen_name,
-                   tweet_id: t.id.to_s, hashtag: hashtag, content: t.text,
+                   tweet_id: t.id, hashtag: hashtag, content: t.text,
                    date: t.created_at)
     end
   end

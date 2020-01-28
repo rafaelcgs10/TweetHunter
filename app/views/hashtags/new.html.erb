@@ -1,12 +1,27 @@
 <%= form_with scope: :hashtag, url: hashtags_path, local: true do |form| %>
-  <p>
-    <%= form.label :hashtag %><br>
-    <%= form.text_field :hashtag %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
+
+<% if @hashtag.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@hashtag.errors.count, "error") %> prohibited
+    this hashtag from being hunted:
+  </h2>
+  <ul>
+    <% @hashtag.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<p>
+  <%= form.label :hashtag %><br>
+  <%= form.text_field :hashtag %>
+</p>
+
+<p>
+  <%= form.submit %>
+</p>
 <% end %>
 
 <%= link_to 'Back', hashtags_path %>
