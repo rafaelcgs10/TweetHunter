@@ -11,7 +11,7 @@ jobs:
   build: 
     docker: 
       - image: circleci/ruby:2.7.0
-	environment:
+        environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: rafael
