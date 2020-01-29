@@ -14,12 +14,11 @@ jobs:
         environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
-          PGUSER: rafael
+          PGUSER: root
       - image: postgres:9.5-alpine
         environment:
-          POSTGRES_USER: rafael
+          POSTGRES_USER: root
           POSTGRES_DB: myDB
-          POSTGRES_PASSWORD: ""
     steps: 
       - checkout
       - run: 
