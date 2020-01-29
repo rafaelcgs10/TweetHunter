@@ -15,11 +15,11 @@ jobs:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: rafael
-      - image: postgres:latest
+      - image: postgres:9.5-alpine
         environment:
           POSTGRES_USER: rafael
           POSTGRES_DB: myDB
-          POSTGRES_PASSWORD: "123456"
+          POSTGRES_PASSWORD: ""
     steps: 
       - checkout
       - run: 
@@ -44,9 +44,9 @@ jobs:
             - vendor/bundle	 
 
       # Setup the database
-      - run:
-          name: Setup the database
-          command: bundle exec rake db:setup
+      # - run:
+      #     name: Setup the database
+      #     command: bundle exec rake db:setup
 
       - run:
           name: Wait for DB
