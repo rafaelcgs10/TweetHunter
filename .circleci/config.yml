@@ -69,16 +69,7 @@ jobs:
 
   deploy:
     docker: 
-      - image: circleci/ruby:2.7.0
-        environment:
-          RAILS_ENV: test
-          PGHOST: 127.0.0.1
-          PGUSER: root
-      - image: postgres:latest
-        environment:
-          POSTGRES_USER: root
-          POSTGRES_DB: myDB
-      - image: redis:latest
+      - image: buildpack-deps:trusty
     steps:
       - checkout
       - run:
