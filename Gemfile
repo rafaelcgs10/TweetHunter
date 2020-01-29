@@ -73,3 +73,5 @@ gem 'resque-scheduler'
 gem 'simplecov', require: false, group: :test
 
 gem 'codecov', :require => false, :group => :test
+
+gem 'newrelic_rpm'
