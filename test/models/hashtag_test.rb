@@ -11,7 +11,7 @@ class HashtagTest < ActiveSupport::TestCase
     hashtag.hashtag = 'abc'
     assert !hashtag.valid?, 'abc is not a valid hashtag'
   end
-  
+
   test 'should accept #pokemon as a hashtag' do
     hashtag = Hashtag.new
     hashtag.hashtag = '#pokemon'
