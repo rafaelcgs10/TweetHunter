@@ -82,6 +82,12 @@ workflows:
   build-deploy:
     jobs:
       - build
+          filters:
+            branches:
+              only: dev
+  build-deploy:
+    jobs:
+      - build
       - deploy:
           requires:
             - build
