@@ -26,11 +26,6 @@ jobs:
           name: Which bundler?
           command: bundle -v
 
-      # Setup the database
-      - run:
-          name: Setup the database
-          command: bundle exec rake db:setup
-
       # Restore bundle cache
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
@@ -47,6 +42,11 @@ jobs:
           key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle	 
+
+      # Setup the database
+      - run:
+          name: Setup the database
+          command: bundle exec rake db:setup
 
       - run:
           name: Wait for DB
