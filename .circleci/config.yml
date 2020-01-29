@@ -12,11 +12,25 @@ jobs:
   build: 
     docker: 
       - image: circleci/ruby:2.7.0
+	environment:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: rafael
+      - image: postgres:9.5
+        environment:
+          POSTGRES_USER: rafael
+          POSTGRES_DB: myDB
+          POSTGRES_PASSWORD: "123456"
     steps: 
       - checkout
       - run: 
           name: Which bundler?
           command: bundle -v
+
+      # Setup the database
+      - run:
+          name: Setup the database
+          command: bundle exec rake db:setup
 
       # Restore bundle cache
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
