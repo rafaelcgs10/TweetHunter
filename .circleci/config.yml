@@ -79,13 +79,13 @@ jobs:
 
 workflows:
   version: 2
-  build-deploy:
+  build-test-dev:
     jobs:
-      - build
+      - build:
           filters:
             branches:
               only: dev
-  build-deploy:
+  build-deploy-master:
     jobs:
       - build
       - deploy:
