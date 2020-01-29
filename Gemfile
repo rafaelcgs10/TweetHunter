@@ -67,3 +67,5 @@ gem 'solargraph', group: :development
 
 gem 'resque'
 gem 'resque-scheduler'
+
+gem 'simplecov', require: false, group: :test
