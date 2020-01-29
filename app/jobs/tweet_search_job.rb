@@ -14,6 +14,7 @@ class TweetSearchJob
 
   def self.search_hashtag(hashtag, number)
     puts "Hunting hashtag #{hashtag}"
+    hashtag.gsub(' AND ', ' ')
     CLIENT.search(hashtag).take(number).each do |t|
       Tweet.create(name: t.user.screen_name,
                    tweet_id: t.id, hashtag: hashtag, content: t.text,
