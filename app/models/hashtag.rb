@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: hashtags
+#
+#  id         :bigint           not null, primary key
+#  hashtag    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Hashtag < ApplicationRecord
   validates_uniqueness_of :hashtag
   validates :hashtag,

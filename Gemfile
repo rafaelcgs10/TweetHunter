@@ -40,6 +40,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'annotate'
+  gem "rename"
 end
 
 group :test do
@@ -63,5 +66,3 @@ gem 'solargraph', group: :development
 
 gem 'resque'
 gem 'resque-scheduler'
-
-gem "rename"
