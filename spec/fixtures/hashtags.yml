@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: hashtags
+#
+#  id         :bigint           not null, primary key
+#  hashtag    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+dog:
+  id: 49
+  hashtag: '#dog'
+  created_at: '2020-02-29T18:17:21Z'
+  updated_at: '2020-02-29T18:17:21Z'
+
+cat:
+  id: 50
+  hashtag: '#cat'
+  created_at: '2020-01-29T18:17:21Z'
+  updated_at: '2020-01-29T18:17:21Z'
