@@ -15,7 +15,9 @@ jobs:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: root
-      - image: circleci/node:6.10
+      - image: circleci/ruby:2.4.4-node-browsers
+        environment:
+          RAILS_ENV: test
       - image: postgres:latest
         environment:
           POSTGRES_USER: root
