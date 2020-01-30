@@ -73,17 +73,14 @@ jobs:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
-  tests:
-    parallelism: 4
-    steps: 
       - run:
-         name: Run rspec in parallel
-         command: |
-           bundle exec rspec --profile 10 \
-                             --format RspecJunitFormatter \
-                             --out test_results/rspec.xml \
-                             --format progress \
-                             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+          name: Run rspec
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out test_results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
@@ -110,18 +107,9 @@ workflows:
               only:
                 - dev
                 - master
-      - tests:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - dev
-                - master
       - deploy:
           requires:
             - build
-            - tests
           filters:
             branches:
               only:
