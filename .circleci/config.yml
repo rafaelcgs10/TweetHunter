@@ -54,7 +54,7 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
-      - run: NODE_ENV=test bundle exec rails webpacker:compile
+      - run: NODE_ENV=test bundle exec rails assets:precompile
 
       - run:
           name: Wait for DB
