@@ -11,8 +11,8 @@
   <% @hashtags.each do |tag| %>
     <tr>
       <td><%= tag.hashtag %></td>
-      <td><%= link_to 'Show', hashtag_path(tag) %></td>
-      <td><%= link_to 'Delete', hashtag_path(tag), method: :delete,
+      <td id=show_<%= tag.hashtag %>><%= link_to 'Show', hashtag_path(tag) %></td>
+      <td id=delete_<%= tag.hashtag %>><%= link_to 'Delete', hashtag_path(tag), method: :delete,
 	      data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
