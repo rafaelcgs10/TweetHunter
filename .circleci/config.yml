@@ -46,6 +46,11 @@ jobs:
       - run:
           name: Create database
           command: bundle exec rake db:create
+
+      - run:
+          name: Install System Dependencies
+	  commnad: sudo apt-get install qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+
       - run:
           name: Database setup
           command: bin/rails db:schema:load --trace
