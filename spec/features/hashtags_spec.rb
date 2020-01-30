@@ -10,8 +10,10 @@ RSpec.feature 'Hashtags', type: :feature do
       within 'form' do
         fill_in 'Hashtag', with: '#udesc'
       end
-      click_button 'Save Hashtag'
-      expect(page).to have_content('Hashtag: #udesc')
+      VCR.use_cassette("synopsis2") do
+        click_button 'Save Hashtag'
+        expect(page).to have_content('Hashtag: #udesc')
+      end
     end
 
     scenario 'should fail to create' do

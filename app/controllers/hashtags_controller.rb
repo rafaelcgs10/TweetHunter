@@ -10,7 +10,6 @@ class HashtagsController < ApplicationController
   def show
     @hashtag = Hashtag.find(params[:id])
     @tweets = Tweet.where(hashtag: @hashtag.hashtag)
-    puts @tweets.inspect
   end
 
   def destroy

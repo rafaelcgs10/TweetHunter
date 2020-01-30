@@ -3,6 +3,13 @@ SimpleCov.start do
   add_filter '/config/'
 end
 
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = "vcr_cassettes"
+  config.hook_into :webmock
+end
+
 require 'codecov'
 SimpleCov.formatter = SimpleCov::Formatter::Codecov
 

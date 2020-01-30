@@ -4,16 +4,15 @@
 class TweetSearchJob
   @queue = :twitter
 
-  def self.perform
+  def self.perform(number)
     @hashtags = Hashtag.all
 
     @hashtags.each do |tag|
-      search_hashtag(tag.hashtag, 10)
+      search_hashtag(tag.hashtag, number)
     end
   end
 
   def self.search_hashtag(hashtag, number)
-    puts "Hunting hashtag #{hashtag}"
     hashtag.gsub(' AND ', ' ')
     CLIENT.search(hashtag, tweet_mode: 'extended').take(number).each do |status|
       content = if status.retweet?

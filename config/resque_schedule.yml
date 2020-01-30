@@ -1,6 +1,6 @@
 twitter:
   every: 30s
   class: TweetSearchJob
-  args:
+  args: 10
   queue: twitter
   description: Runs the tweet search method
