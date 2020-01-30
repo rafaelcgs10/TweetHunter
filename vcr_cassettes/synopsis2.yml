@@ -1,0 +1,346 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitter.com/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      User-Agent:
+      - TwitterRubyGem/6.2.0
+      Accept:
+      - "*/*"
+      Authorization:
+      - Basic MlJsQ1phUEdTcG10TG1Ec3JiUFVRcTJjSTpvOWVqQmkwM0E2Q21pelNJcEE5RURrb3VJZmhKaXJCTWd0Q0RERE9xQXZjWUc1a3ZQQQ==
+      Connection:
+      - close
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.twitter.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Connection:
+      - close
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '153'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 30 Jan 2020 23:09:53 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 30 Jan 2020 23:09:52 GMT
+      Ml:
+      - A
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_d
+      Set-Cookie:
+      - guest_id=v1%3A158042579295987215; Max-Age=63072000; Expires=Sat, 29 Jan 2022
+        23:09:52 GMT; Path=/; Domain=.twitter.com
+      - personalization_id="v1_r8jH4/wCb7ZsBRKDvnEybA=="; Max-Age=63072000; Expires=Sat,
+        29 Jan 2022 23:09:52 GMT; Path=/; Domain=.twitter.com
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Connection-Hash:
+      - aae8d1ff5478675ec2f16481f1759e67
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Response-Time:
+      - '132'
+      X-Transaction:
+      - 00d519b8008ee97e
+      X-Tsa-Request-Body-Time:
+      - '0'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      X-Xss-Protection:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: '{"token_type":"bearer","access_token":"AAAAAAAAAAAAAAAAAAAAAOmHCAEAAAAAzUTde3MRTMRcBrwX4uNeYxWh7cw%3DWFyo9dcHkrMZRAfgHJDT6M73WoVtfwF7p674SECa7nrWhnspQ1"}'
+    http_version: 
+  recorded_at: Thu, 30 Jan 2020 23:10:17 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/search/tweets.json?count=100&q=%23udesc&tweet_mode=extended
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - TwitterRubyGem/6.2.0
+      Authorization:
+      - Bearer AAAAAAAAAAAAAAAAAAAAAOmHCAEAAAAAzUTde3MRTMRcBrwX4uNeYxWh7cw%3DWFyo9dcHkrMZRAfgHJDT6M73WoVtfwF7p674SECa7nrWhnspQ1
+      Connection:
+      - close
+      Host:
+      - api.twitter.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Connection:
+      - close
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '45219'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 30 Jan 2020 23:09:53 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 30 Jan 2020 23:09:53 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_d
+      Set-Cookie:
+      - guest_id=v1%3A158042579365152144; Max-Age=63072000; Expires=Sat, 29 Jan 2022
+        23:09:53 GMT; Path=/; Domain=.twitter.com
+      - personalization_id="v1_NOtG2P7frc0uSdhXzcfQdA=="; Max-Age=63072000; Expires=Sat,
+        29 Jan 2022 23:09:53 GMT; Path=/; Domain=.twitter.com
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read
+      X-Connection-Hash:
+      - 67a13465ba020a7088a240df5cd85f59
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '450'
+      X-Rate-Limit-Remaining:
+      - '411'
+      X-Rate-Limit-Reset:
+      - '1580426365'
+      X-Response-Time:
+      - '146'
+      X-Transaction:
+      - 005337ad00dd1be9
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: '{"statuses":[{"created_at":"Thu Jan 30 17:32:42 +0000 2020","id":1222935683817508866,"id_str":"1222935683817508866","full_text":"RT
+        @udesc_esag: Juliana Francisconi Cardoso far\u00e1 nesta sexta, 31, \u00e0s
+        9h, na Sala 08 da #Udesc #Esag, a defesa de sua disserta\u00e7\u00e3o do Mestrad\u2026","truncated":false,"display_text_range":[0,140],"entities":{"hashtags":[{"text":"Udesc","indices":[87,93]},{"text":"Esag","indices":[94,99]}],"symbols":[],"user_mentions":[{"screen_name":"udesc_esag","name":"Udesc
+        Esag","id":221050908,"id_str":"221050908","indices":[3,14]}],"urls":[]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":267553737,"id_str":"267553737","name":"Udesc","screen_name":"udesc","location":"","description":"Universidade
+        do Estado de Santa Catarina - P\u00fablica, gratuita e de qualidade","url":"https:\/\/t.co\/xMw88QcjM6","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/xMw88QcjM6","expanded_url":"http:\/\/www.udesc.br","display_url":"udesc.br","indices":[0,23]}]},"description":{"urls":[]}},"protected":false,"followers_count":4654,"friends_count":71,"listed_count":38,"created_at":"Thu
+        Mar 17 04:06:20 +0000 2011","favourites_count":5686,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":14801,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"129953","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/1217623102949089280\/HYv4ntBC_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/1217623102949089280\/HYv4ntBC_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/267553737\/1571256611","profile_link_color":"074D26","profile_sidebar_border_color":"FFFFFF","profile_sidebar_fill_color":"C0DFEC","profile_text_color":"333333","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"regular"},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Wed
+        Jan 29 22:54:24 +0000 2020","id":1222654252767752192,"id_str":"1222654252767752192","full_text":"Juliana
+        Francisconi Cardoso far\u00e1 nesta sexta, 31, \u00e0s 9h, na Sala 08 da #Udesc
+        #Esag, a defesa de sua disserta\u00e7\u00e3o do Mestrado Profissional em Administra\u00e7\u00e3o.
+        Ela prop\u00f5e o aperfei\u00e7oamento do controle do @TCE_SC  sobre a d\u00edvida
+        p\u00fablica do Estado. https:\/\/t.co\/KooUCI6tfV","truncated":false,"display_text_range":[0,242],"entities":{"hashtags":[{"text":"Udesc","indices":[71,77]},{"text":"Esag","indices":[78,83]}],"symbols":[],"user_mentions":[{"screen_name":"TCE_SC","name":"TCE\/SC","id":764215134,"id_str":"764215134","indices":[200,207]}],"urls":[],"media":[{"id":1222654245176070147,"id_str":"1222654245176070147","indices":[243,266],"media_url":"http:\/\/pbs.twimg.com\/media\/EPe9jt7X0AMf3nb.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPe9jt7X0AMf3nb.jpg","url":"https:\/\/t.co\/KooUCI6tfV","display_url":"pic.twitter.com\/KooUCI6tfV","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1222654252767752192\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1024,"h":682,"resize":"fit"},"medium":{"w":1024,"h":682,"resize":"fit"},"small":{"w":680,"h":453,"resize":"fit"}}}]},"extended_entities":{"media":[{"id":1222654245176070147,"id_str":"1222654245176070147","indices":[243,266],"media_url":"http:\/\/pbs.twimg.com\/media\/EPe9jt7X0AMf3nb.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPe9jt7X0AMf3nb.jpg","url":"https:\/\/t.co\/KooUCI6tfV","display_url":"pic.twitter.com\/KooUCI6tfV","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1222654252767752192\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1024,"h":682,"resize":"fit"},"medium":{"w":1024,"h":682,"resize":"fit"},"small":{"w":680,"h":453,"resize":"fit"}}}]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":221050908,"id_str":"221050908","name":"Udesc
+        Esag","screen_name":"udesc_esag","location":"Florian\u00f3polis, Santa Catarina","description":"Centro
+        de Ci\u00eancias da Administra\u00e7\u00e3o e Socioecon\u00f4micas (Esag)
+        da Universidade do Estado de Santa Catarina (Udesc)","url":"http:\/\/t.co\/O4LIlquxgB","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/O4LIlquxgB","expanded_url":"http:\/\/www.esag.udesc.br\/","display_url":"esag.udesc.br","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":1148,"friends_count":123,"listed_count":11,"created_at":"Mon
+        Nov 29 16:12:02 +0000 2010","favourites_count":236,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":5321,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"588BA3","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/221050908\/1572458560","profile_link_color":"0404B4","profile_sidebar_border_color":"FFF6B8","profile_sidebar_fill_color":"F2EAB3","profile_text_color":"07354A","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"none"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":1,"favorite_count":3,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"pt"},"is_quote_status":false,"retweet_count":1,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"pt"},{"created_at":"Wed
+        Jan 29 22:54:24 +0000 2020","id":1222654252767752192,"id_str":"1222654252767752192","full_text":"Juliana
+        Francisconi Cardoso far\u00e1 nesta sexta, 31, \u00e0s 9h, na Sala 08 da #Udesc
+        #Esag, a defesa de sua disserta\u00e7\u00e3o do Mestrado Profissional em Administra\u00e7\u00e3o.
+        Ela prop\u00f5e o aperfei\u00e7oamento do controle do @TCE_SC  sobre a d\u00edvida
+        p\u00fablica do Estado. https:\/\/t.co\/KooUCI6tfV","truncated":false,"display_text_range":[0,242],"entities":{"hashtags":[{"text":"Udesc","indices":[71,77]},{"text":"Esag","indices":[78,83]}],"symbols":[],"user_mentions":[{"screen_name":"TCE_SC","name":"TCE\/SC","id":764215134,"id_str":"764215134","indices":[200,207]}],"urls":[],"media":[{"id":1222654245176070147,"id_str":"1222654245176070147","indices":[243,266],"media_url":"http:\/\/pbs.twimg.com\/media\/EPe9jt7X0AMf3nb.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPe9jt7X0AMf3nb.jpg","url":"https:\/\/t.co\/KooUCI6tfV","display_url":"pic.twitter.com\/KooUCI6tfV","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1222654252767752192\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1024,"h":682,"resize":"fit"},"medium":{"w":1024,"h":682,"resize":"fit"},"small":{"w":680,"h":453,"resize":"fit"}}}]},"extended_entities":{"media":[{"id":1222654245176070147,"id_str":"1222654245176070147","indices":[243,266],"media_url":"http:\/\/pbs.twimg.com\/media\/EPe9jt7X0AMf3nb.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPe9jt7X0AMf3nb.jpg","url":"https:\/\/t.co\/KooUCI6tfV","display_url":"pic.twitter.com\/KooUCI6tfV","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1222654252767752192\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1024,"h":682,"resize":"fit"},"medium":{"w":1024,"h":682,"resize":"fit"},"small":{"w":680,"h":453,"resize":"fit"}}}]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":221050908,"id_str":"221050908","name":"Udesc
+        Esag","screen_name":"udesc_esag","location":"Florian\u00f3polis, Santa Catarina","description":"Centro
+        de Ci\u00eancias da Administra\u00e7\u00e3o e Socioecon\u00f4micas (Esag)
+        da Universidade do Estado de Santa Catarina (Udesc)","url":"http:\/\/t.co\/O4LIlquxgB","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/O4LIlquxgB","expanded_url":"http:\/\/www.esag.udesc.br\/","display_url":"esag.udesc.br","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":1148,"friends_count":123,"listed_count":11,"created_at":"Mon
+        Nov 29 16:12:02 +0000 2010","favourites_count":236,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":5321,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"588BA3","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/221050908\/1572458560","profile_link_color":"0404B4","profile_sidebar_border_color":"FFF6B8","profile_sidebar_fill_color":"F2EAB3","profile_text_color":"07354A","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"none"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":1,"favorite_count":3,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"pt"},{"created_at":"Wed
+        Jan 29 21:03:10 +0000 2020","id":1222626262117683202,"id_str":"1222626262117683202","full_text":"RT
+        @udesc_esag: A #Udesc #Esag publicar\u00e1 nos pr\u00f3ximos dias um edital
+        espec\u00edfico, com tr\u00eas vagas, para sele\u00e7\u00e3o de servidores
+        do @TCE_SC  par\u2026","truncated":false,"display_text_range":[0,140],"entities":{"hashtags":[{"text":"Udesc","indices":[18,24]},{"text":"Esag","indices":[25,30]}],"symbols":[],"user_mentions":[{"screen_name":"udesc_esag","name":"Udesc
+        Esag","id":221050908,"id_str":"221050908","indices":[3,14]},{"screen_name":"TCE_SC","name":"TCE\/SC","id":764215134,"id_str":"764215134","indices":[127,134]}],"urls":[]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":267553737,"id_str":"267553737","name":"Udesc","screen_name":"udesc","location":"","description":"Universidade
+        do Estado de Santa Catarina - P\u00fablica, gratuita e de qualidade","url":"https:\/\/t.co\/xMw88QcjM6","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/xMw88QcjM6","expanded_url":"http:\/\/www.udesc.br","display_url":"udesc.br","indices":[0,23]}]},"description":{"urls":[]}},"protected":false,"followers_count":4654,"friends_count":71,"listed_count":38,"created_at":"Thu
+        Mar 17 04:06:20 +0000 2011","favourites_count":5686,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":14801,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"129953","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/1217623102949089280\/HYv4ntBC_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/1217623102949089280\/HYv4ntBC_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/267553737\/1571256611","profile_link_color":"074D26","profile_sidebar_border_color":"FFFFFF","profile_sidebar_fill_color":"C0DFEC","profile_text_color":"333333","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"regular"},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Wed
+        Jan 29 20:44:47 +0000 2020","id":1222621632809881600,"id_str":"1222621632809881600","full_text":"A
+        #Udesc #Esag publicar\u00e1 nos pr\u00f3ximos dias um edital espec\u00edfico,
+        com tr\u00eas vagas, para sele\u00e7\u00e3o de servidores do @TCE_SC  para
+        o Mestrado Profissional em Administra\u00e7\u00e3o. Os termos foram discutidos
+        nesta ter\u00e7a, 28, em reuni\u00e3o entre as duas institui\u00e7\u00f5es.
+        https:\/\/t.co\/d7FVR8HQMc https:\/\/t.co\/yVJLIAnWHk","truncated":false,"display_text_range":[0,273],"entities":{"hashtags":[{"text":"Udesc","indices":[2,8]},{"text":"Esag","indices":[9,14]}],"symbols":[],"user_mentions":[{"screen_name":"TCE_SC","name":"TCE\/SC","id":764215134,"id_str":"764215134","indices":[111,118]}],"urls":[{"url":"https:\/\/t.co\/d7FVR8HQMc","expanded_url":"https:\/\/www.udesc.br\/esag\/noticia\/mestrado_profissional_de_administracao_da_udesc_esag_abrira_selecao_para_servidores_do_tce","display_url":"udesc.br\/esag\/noticia\/m\u2026","indices":[250,273]}],"media":[{"id":1222621621938159616,"id_str":"1222621621938159616","indices":[274,297],"media_url":"http:\/\/pbs.twimg.com\/media\/EPef4y5WAAAIDa6.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPef4y5WAAAIDa6.jpg","url":"https:\/\/t.co\/yVJLIAnWHk","display_url":"pic.twitter.com\/yVJLIAnWHk","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1222621632809881600\/photo\/1","type":"photo","sizes":{"small":{"w":680,"h":412,"resize":"fit"},"medium":{"w":1200,"h":727,"resize":"fit"},"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1539,"h":932,"resize":"fit"}}}]},"extended_entities":{"media":[{"id":1222621621938159616,"id_str":"1222621621938159616","indices":[274,297],"media_url":"http:\/\/pbs.twimg.com\/media\/EPef4y5WAAAIDa6.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPef4y5WAAAIDa6.jpg","url":"https:\/\/t.co\/yVJLIAnWHk","display_url":"pic.twitter.com\/yVJLIAnWHk","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1222621632809881600\/photo\/1","type":"photo","sizes":{"small":{"w":680,"h":412,"resize":"fit"},"medium":{"w":1200,"h":727,"resize":"fit"},"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1539,"h":932,"resize":"fit"}}}]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":221050908,"id_str":"221050908","name":"Udesc
+        Esag","screen_name":"udesc_esag","location":"Florian\u00f3polis, Santa Catarina","description":"Centro
+        de Ci\u00eancias da Administra\u00e7\u00e3o e Socioecon\u00f4micas (Esag)
+        da Universidade do Estado de Santa Catarina (Udesc)","url":"http:\/\/t.co\/O4LIlquxgB","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/O4LIlquxgB","expanded_url":"http:\/\/www.esag.udesc.br\/","display_url":"esag.udesc.br","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":1148,"friends_count":123,"listed_count":11,"created_at":"Mon
+        Nov 29 16:12:02 +0000 2010","favourites_count":236,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":5321,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"588BA3","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/221050908\/1572458560","profile_link_color":"0404B4","profile_sidebar_border_color":"FFF6B8","profile_sidebar_fill_color":"F2EAB3","profile_text_color":"07354A","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"none"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":1,"favorite_count":5,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"pt"},"is_quote_status":false,"retweet_count":1,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"pt"},{"created_at":"Wed
+        Jan 29 20:44:47 +0000 2020","id":1222621632809881600,"id_str":"1222621632809881600","full_text":"A
+        #Udesc #Esag publicar\u00e1 nos pr\u00f3ximos dias um edital espec\u00edfico,
+        com tr\u00eas vagas, para sele\u00e7\u00e3o de servidores do @TCE_SC  para
+        o Mestrado Profissional em Administra\u00e7\u00e3o. Os termos foram discutidos
+        nesta ter\u00e7a, 28, em reuni\u00e3o entre as duas institui\u00e7\u00f5es.
+        https:\/\/t.co\/d7FVR8HQMc https:\/\/t.co\/yVJLIAnWHk","truncated":false,"display_text_range":[0,273],"entities":{"hashtags":[{"text":"Udesc","indices":[2,8]},{"text":"Esag","indices":[9,14]}],"symbols":[],"user_mentions":[{"screen_name":"TCE_SC","name":"TCE\/SC","id":764215134,"id_str":"764215134","indices":[111,118]}],"urls":[{"url":"https:\/\/t.co\/d7FVR8HQMc","expanded_url":"https:\/\/www.udesc.br\/esag\/noticia\/mestrado_profissional_de_administracao_da_udesc_esag_abrira_selecao_para_servidores_do_tce","display_url":"udesc.br\/esag\/noticia\/m\u2026","indices":[250,273]}],"media":[{"id":1222621621938159616,"id_str":"1222621621938159616","indices":[274,297],"media_url":"http:\/\/pbs.twimg.com\/media\/EPef4y5WAAAIDa6.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPef4y5WAAAIDa6.jpg","url":"https:\/\/t.co\/yVJLIAnWHk","display_url":"pic.twitter.com\/yVJLIAnWHk","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1222621632809881600\/photo\/1","type":"photo","sizes":{"small":{"w":680,"h":412,"resize":"fit"},"medium":{"w":1200,"h":727,"resize":"fit"},"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1539,"h":932,"resize":"fit"}}}]},"extended_entities":{"media":[{"id":1222621621938159616,"id_str":"1222621621938159616","indices":[274,297],"media_url":"http:\/\/pbs.twimg.com\/media\/EPef4y5WAAAIDa6.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPef4y5WAAAIDa6.jpg","url":"https:\/\/t.co\/yVJLIAnWHk","display_url":"pic.twitter.com\/yVJLIAnWHk","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1222621632809881600\/photo\/1","type":"photo","sizes":{"small":{"w":680,"h":412,"resize":"fit"},"medium":{"w":1200,"h":727,"resize":"fit"},"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1539,"h":932,"resize":"fit"}}}]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":221050908,"id_str":"221050908","name":"Udesc
+        Esag","screen_name":"udesc_esag","location":"Florian\u00f3polis, Santa Catarina","description":"Centro
+        de Ci\u00eancias da Administra\u00e7\u00e3o e Socioecon\u00f4micas (Esag)
+        da Universidade do Estado de Santa Catarina (Udesc)","url":"http:\/\/t.co\/O4LIlquxgB","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/O4LIlquxgB","expanded_url":"http:\/\/www.esag.udesc.br\/","display_url":"esag.udesc.br","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":1148,"friends_count":123,"listed_count":11,"created_at":"Mon
+        Nov 29 16:12:02 +0000 2010","favourites_count":236,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":5321,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"588BA3","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/221050908\/1572458560","profile_link_color":"0404B4","profile_sidebar_border_color":"FFF6B8","profile_sidebar_fill_color":"F2EAB3","profile_text_color":"07354A","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"none"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":1,"favorite_count":5,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"pt"},{"created_at":"Sat
+        Jan 25 11:27:27 +0000 2020","id":1221031824694091777,"id_str":"1221031824694091777","full_text":"RT
+        @udesc_esag: A #Udesc #Esag j\u00e1 publicou o edital do processo seletivo
+        para ingresso nos cursos de mestrado profissional, mestrado acad\u00eam\u2026","truncated":false,"display_text_range":[0,140],"entities":{"hashtags":[{"text":"Udesc","indices":[18,24]},{"text":"Esag","indices":[25,30]}],"symbols":[],"user_mentions":[{"screen_name":"udesc_esag","name":"Udesc
+        Esag","id":221050908,"id_str":"221050908","indices":[3,14]}],"urls":[]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter
+        for Android\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":74422106,"id_str":"74422106","name":"Aline
+        Regina Santos","screen_name":"Aline_Regina_","location":"Floripa\/ SC - Brasil","description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":121,"friends_count":131,"listed_count":2,"created_at":"Tue
+        Sep 15 11:15:04 +0000 2009","favourites_count":195,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":29,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"526DB0","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme7\/bg.gif","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme7\/bg.gif","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/968803375893696513\/1d30kBOL_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/968803375893696513\/1d30kBOL_normal.jpg","profile_link_color":"A0B8F3","profile_sidebar_border_color":"AAAAAA","profile_sidebar_fill_color":"526DB0","profile_text_color":"AAAAAA","profile_use_background_image":true,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"none"},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Fri
+        Jan 24 18:45:21 +0000 2020","id":1220779638215073792,"id_str":"1220779638215073792","full_text":"A
+        #Udesc #Esag j\u00e1 publicou o edital do processo seletivo para ingresso
+        nos cursos de mestrado profissional, mestrado acad\u00eamico e doutorado em
+        Administra\u00e7\u00e3o. Leia a not\u00edcia e saiba mais: https:\/\/t.co\/amB7dtRKYE
+        https:\/\/t.co\/rsT962jHiF","truncated":false,"display_text_range":[0,209],"entities":{"hashtags":[{"text":"Udesc","indices":[2,8]},{"text":"Esag","indices":[9,14]}],"symbols":[],"user_mentions":[],"urls":[{"url":"https:\/\/t.co\/amB7dtRKYE","expanded_url":"https:\/\/www.udesc.br\/esag\/noticia\/udesc_esag_esta_com_processo_seletivo_aberto_para_ingresso_no_mestrado_e_doutorado_em_administracao","display_url":"udesc.br\/esag\/noticia\/u\u2026","indices":[186,209]}],"media":[{"id":1220779630023598080,"id_str":"1220779630023598080","indices":[210,233],"media_url":"http:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","url":"https:\/\/t.co\/rsT962jHiF","display_url":"pic.twitter.com\/rsT962jHiF","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1220779638215073792\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1200,"h":959,"resize":"fit"},"small":{"w":680,"h":543,"resize":"fit"},"medium":{"w":1200,"h":959,"resize":"fit"}}}]},"extended_entities":{"media":[{"id":1220779630023598080,"id_str":"1220779630023598080","indices":[210,233],"media_url":"http:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","url":"https:\/\/t.co\/rsT962jHiF","display_url":"pic.twitter.com\/rsT962jHiF","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1220779638215073792\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1200,"h":959,"resize":"fit"},"small":{"w":680,"h":543,"resize":"fit"},"medium":{"w":1200,"h":959,"resize":"fit"}}}]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":221050908,"id_str":"221050908","name":"Udesc
+        Esag","screen_name":"udesc_esag","location":"Florian\u00f3polis, Santa Catarina","description":"Centro
+        de Ci\u00eancias da Administra\u00e7\u00e3o e Socioecon\u00f4micas (Esag)
+        da Universidade do Estado de Santa Catarina (Udesc)","url":"http:\/\/t.co\/O4LIlquxgB","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/O4LIlquxgB","expanded_url":"http:\/\/www.esag.udesc.br\/","display_url":"esag.udesc.br","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":1148,"friends_count":123,"listed_count":11,"created_at":"Mon
+        Nov 29 16:12:02 +0000 2010","favourites_count":236,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":5321,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"588BA3","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/221050908\/1572458560","profile_link_color":"0404B4","profile_sidebar_border_color":"FFF6B8","profile_sidebar_fill_color":"F2EAB3","profile_text_color":"07354A","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"none"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":2,"favorite_count":5,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"pt"},"is_quote_status":false,"retweet_count":2,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"pt"},{"created_at":"Fri
+        Jan 24 18:48:26 +0000 2020","id":1220780412831772674,"id_str":"1220780412831772674","full_text":"RT
+        @udesc_esag: A #Udesc #Esag j\u00e1 publicou o edital do processo seletivo
+        para ingresso nos cursos de mestrado profissional, mestrado acad\u00eam\u2026","truncated":false,"display_text_range":[0,140],"entities":{"hashtags":[{"text":"Udesc","indices":[18,24]},{"text":"Esag","indices":[25,30]}],"symbols":[],"user_mentions":[{"screen_name":"udesc_esag","name":"Udesc
+        Esag","id":221050908,"id_str":"221050908","indices":[3,14]}],"urls":[]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":267553737,"id_str":"267553737","name":"Udesc","screen_name":"udesc","location":"","description":"Universidade
+        do Estado de Santa Catarina - P\u00fablica, gratuita e de qualidade","url":"https:\/\/t.co\/xMw88QcjM6","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/xMw88QcjM6","expanded_url":"http:\/\/www.udesc.br","display_url":"udesc.br","indices":[0,23]}]},"description":{"urls":[]}},"protected":false,"followers_count":4654,"friends_count":71,"listed_count":38,"created_at":"Thu
+        Mar 17 04:06:20 +0000 2011","favourites_count":5686,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":14801,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"129953","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/1217623102949089280\/HYv4ntBC_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/1217623102949089280\/HYv4ntBC_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/267553737\/1571256611","profile_link_color":"074D26","profile_sidebar_border_color":"FFFFFF","profile_sidebar_fill_color":"C0DFEC","profile_text_color":"333333","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"regular"},"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Fri
+        Jan 24 18:45:21 +0000 2020","id":1220779638215073792,"id_str":"1220779638215073792","full_text":"A
+        #Udesc #Esag j\u00e1 publicou o edital do processo seletivo para ingresso
+        nos cursos de mestrado profissional, mestrado acad\u00eamico e doutorado em
+        Administra\u00e7\u00e3o. Leia a not\u00edcia e saiba mais: https:\/\/t.co\/amB7dtRKYE
+        https:\/\/t.co\/rsT962jHiF","truncated":false,"display_text_range":[0,209],"entities":{"hashtags":[{"text":"Udesc","indices":[2,8]},{"text":"Esag","indices":[9,14]}],"symbols":[],"user_mentions":[],"urls":[{"url":"https:\/\/t.co\/amB7dtRKYE","expanded_url":"https:\/\/www.udesc.br\/esag\/noticia\/udesc_esag_esta_com_processo_seletivo_aberto_para_ingresso_no_mestrado_e_doutorado_em_administracao","display_url":"udesc.br\/esag\/noticia\/u\u2026","indices":[186,209]}],"media":[{"id":1220779630023598080,"id_str":"1220779630023598080","indices":[210,233],"media_url":"http:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","url":"https:\/\/t.co\/rsT962jHiF","display_url":"pic.twitter.com\/rsT962jHiF","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1220779638215073792\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1200,"h":959,"resize":"fit"},"small":{"w":680,"h":543,"resize":"fit"},"medium":{"w":1200,"h":959,"resize":"fit"}}}]},"extended_entities":{"media":[{"id":1220779630023598080,"id_str":"1220779630023598080","indices":[210,233],"media_url":"http:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","url":"https:\/\/t.co\/rsT962jHiF","display_url":"pic.twitter.com\/rsT962jHiF","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1220779638215073792\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1200,"h":959,"resize":"fit"},"small":{"w":680,"h":543,"resize":"fit"},"medium":{"w":1200,"h":959,"resize":"fit"}}}]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":221050908,"id_str":"221050908","name":"Udesc
+        Esag","screen_name":"udesc_esag","location":"Florian\u00f3polis, Santa Catarina","description":"Centro
+        de Ci\u00eancias da Administra\u00e7\u00e3o e Socioecon\u00f4micas (Esag)
+        da Universidade do Estado de Santa Catarina (Udesc)","url":"http:\/\/t.co\/O4LIlquxgB","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/O4LIlquxgB","expanded_url":"http:\/\/www.esag.udesc.br\/","display_url":"esag.udesc.br","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":1148,"friends_count":123,"listed_count":11,"created_at":"Mon
+        Nov 29 16:12:02 +0000 2010","favourites_count":236,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":5321,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"588BA3","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/221050908\/1572458560","profile_link_color":"0404B4","profile_sidebar_border_color":"FFF6B8","profile_sidebar_fill_color":"F2EAB3","profile_text_color":"07354A","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"none"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":2,"favorite_count":5,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"pt"},"is_quote_status":false,"retweet_count":2,"favorite_count":0,"favorited":false,"retweeted":false,"lang":"pt"},{"created_at":"Fri
+        Jan 24 18:45:21 +0000 2020","id":1220779638215073792,"id_str":"1220779638215073792","full_text":"A
+        #Udesc #Esag j\u00e1 publicou o edital do processo seletivo para ingresso
+        nos cursos de mestrado profissional, mestrado acad\u00eamico e doutorado em
+        Administra\u00e7\u00e3o. Leia a not\u00edcia e saiba mais: https:\/\/t.co\/amB7dtRKYE
+        https:\/\/t.co\/rsT962jHiF","truncated":false,"display_text_range":[0,209],"entities":{"hashtags":[{"text":"Udesc","indices":[2,8]},{"text":"Esag","indices":[9,14]}],"symbols":[],"user_mentions":[],"urls":[{"url":"https:\/\/t.co\/amB7dtRKYE","expanded_url":"https:\/\/www.udesc.br\/esag\/noticia\/udesc_esag_esta_com_processo_seletivo_aberto_para_ingresso_no_mestrado_e_doutorado_em_administracao","display_url":"udesc.br\/esag\/noticia\/u\u2026","indices":[186,209]}],"media":[{"id":1220779630023598080,"id_str":"1220779630023598080","indices":[210,233],"media_url":"http:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","url":"https:\/\/t.co\/rsT962jHiF","display_url":"pic.twitter.com\/rsT962jHiF","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1220779638215073792\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1200,"h":959,"resize":"fit"},"small":{"w":680,"h":543,"resize":"fit"},"medium":{"w":1200,"h":959,"resize":"fit"}}}]},"extended_entities":{"media":[{"id":1220779630023598080,"id_str":"1220779630023598080","indices":[210,233],"media_url":"http:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","media_url_https":"https:\/\/pbs.twimg.com\/media\/EPEUmwSW4AAtx0-.jpg","url":"https:\/\/t.co\/rsT962jHiF","display_url":"pic.twitter.com\/rsT962jHiF","expanded_url":"https:\/\/twitter.com\/udesc_esag\/status\/1220779638215073792\/photo\/1","type":"photo","sizes":{"thumb":{"w":150,"h":150,"resize":"crop"},"large":{"w":1200,"h":959,"resize":"fit"},"small":{"w":680,"h":543,"resize":"fit"},"medium":{"w":1200,"h":959,"resize":"fit"}}}]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"https:\/\/mobile.twitter.com\" rel=\"nofollow\"\u003eTwitter Web App\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":221050908,"id_str":"221050908","name":"Udesc
+        Esag","screen_name":"udesc_esag","location":"Florian\u00f3polis, Santa Catarina","description":"Centro
+        de Ci\u00eancias da Administra\u00e7\u00e3o e Socioecon\u00f4micas (Esag)
+        da Universidade do Estado de Santa Catarina (Udesc)","url":"http:\/\/t.co\/O4LIlquxgB","entities":{"url":{"urls":[{"url":"http:\/\/t.co\/O4LIlquxgB","expanded_url":"http:\/\/www.esag.udesc.br\/","display_url":"esag.udesc.br","indices":[0,22]}]},"description":{"urls":[]}},"protected":false,"followers_count":1148,"friends_count":123,"listed_count":11,"created_at":"Mon
+        Nov 29 16:12:02 +0000 2010","favourites_count":236,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":5321,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"588BA3","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/589145999639183360\/VZafBlJl_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/221050908\/1572458560","profile_link_color":"0404B4","profile_sidebar_border_color":"FFF6B8","profile_sidebar_fill_color":"F2EAB3","profile_text_color":"07354A","profile_use_background_image":false,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"none"},"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":2,"favorite_count":5,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"pt"},{"created_at":"Fri
+        Jan 24 14:16:24 +0000 2020","id":1220711954764980226,"id_str":"1220711954764980226","full_text":"Flechas
+        com sinalizadores. \n\nTestando um novo tipo de flecha hist\u00f3rica.\n\nExcelente
+        imagem de @xopazudo \n\n#academiascam #arco #medieval #arquearia #arqueriainstintiva
+        #florianopolis #floripa #ufsc #udesc #ifsc #rpg\u2026 https:\/\/t.co\/R5tlPEzAZm","truncated":false,"display_text_range":[0,238],"entities":{"hashtags":[{"text":"academiascam","indices":[105,118]},{"text":"arco","indices":[119,124]},{"text":"medieval","indices":[125,134]},{"text":"arquearia","indices":[135,145]},{"text":"arqueriainstintiva","indices":[146,165]},{"text":"florianopolis","indices":[166,180]},{"text":"floripa","indices":[181,189]},{"text":"ufsc","indices":[190,195]},{"text":"udesc","indices":[196,202]},{"text":"ifsc","indices":[203,208]},{"text":"rpg","indices":[209,213]}],"symbols":[],"user_mentions":[{"screen_name":"xopazudo","name":"Eduardo
+        Engelbrecht","id":45385309,"id_str":"45385309","indices":[93,102]}],"urls":[{"url":"https:\/\/t.co\/R5tlPEzAZm","expanded_url":"https:\/\/www.instagram.com\/p\/B7tJYv5nhHE\/?igshid=1mnimlcxx5o1a","display_url":"instagram.com\/p\/B7tJYv5nhHE\/\u2026","indices":[215,238]}]},"metadata":{"iso_language_code":"pt","result_type":"recent"},"source":"\u003ca
+        href=\"http:\/\/instagram.com\" rel=\"nofollow\"\u003eInstagram\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"user":{"id":41412594,"id_str":"41412594","name":"Academia
+        S.C.A.M.","screen_name":"lutasmedievais","location":"Santa Catarina.","description":"Fundada
+        em 2002. Treinos de: Esgrima hist\u00f3rica, Arquearia tradicional e Combate
+        medieval.\nTurmas adultas e infantis. \nParticipa\u00e7\u00e3o em eventos
+        culturais.","url":"https:\/\/t.co\/cCfYXMZ53c","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/cCfYXMZ53c","expanded_url":"http:\/\/www.academiascam.com","display_url":"academiascam.com","indices":[0,23]}]},"description":{"urls":[]}},"protected":false,"followers_count":147,"friends_count":200,"listed_count":6,"created_at":"Wed
+        May 20 18:08:39 +0000 2009","favourites_count":23,"utc_offset":null,"time_zone":null,"geo_enabled":true,"verified":false,"statuses_count":762,"lang":null,"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"8B542B","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_tile":true,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/964473124812189696\/xHtlkJbO_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/964473124812189696\/xHtlkJbO_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/41412594\/1518783097","profile_link_color":"9D582E","profile_sidebar_border_color":"D9B17E","profile_sidebar_fill_color":"EADEAA","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":true,"default_profile":false,"default_profile_image":false,"following":null,"follow_request_sent":null,"notifications":null,"translator_type":"none"},"geo":{"type":"Point","coordinates":[-27.58577783,-48.52026502]},"coordinates":{"type":"Point","coordinates":[-48.52026502,-27.58577783]},"place":{"id":"c44302d542084bfe","url":"https:\/\/api.twitter.com\/1.1\/geo\/id\/c44302d542084bfe.json","place_type":"city","name":"Florian\u00f3polis","full_name":"Florian\u00f3polis,
+        Brazil","country_code":"BR","country":"Brazil","contained_within":[],"bounding_box":{"type":"Polygon","coordinates":[[[-48.6103127,-27.8389356],[-48.3474853,-27.8389356],[-48.3474853,-27.3804458],[-48.6103127,-27.3804458]]]},"attributes":{}},"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":0,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"pt"}],"search_metadata":{"completed_in":0.006,"max_id":1222935683817508866,"max_id_str":"1222935683817508866","next_results":"?max_id=1220711954764980225&q=%23udesc&count=100&include_entities=1","query":"%23udesc","refresh_url":"?since_id=1222935683817508866&q=%23udesc&include_entities=1","count":100,"since_id":0,"since_id_str":"0"}}'
+    http_version: 
+  recorded_at: Thu, 30 Jan 2020 23:10:18 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/search/tweets.json?count=100&include_entities=1&max_id=1220711954764980225&q=%23udesc&tweet_mode=extended
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - TwitterRubyGem/6.2.0
+      Authorization:
+      - Bearer AAAAAAAAAAAAAAAAAAAAAOmHCAEAAAAAzUTde3MRTMRcBrwX4uNeYxWh7cw%3DWFyo9dcHkrMZRAfgHJDT6M73WoVtfwF7p674SECa7nrWhnspQ1
+      Connection:
+      - close
+      Host:
+      - api.twitter.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Connection:
+      - close
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '259'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 30 Jan 2020 23:09:54 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Thu, 30 Jan 2020 23:09:54 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_d
+      Set-Cookie:
+      - guest_id=v1%3A158042579464580360; Max-Age=63072000; Expires=Sat, 29 Jan 2022
+        23:09:54 GMT; Path=/; Domain=.twitter.com
+      - personalization_id="v1_yUpqLuMEmUJBY0Ipwgg4ug=="; Max-Age=63072000; Expires=Sat,
+        29 Jan 2022 23:09:54 GMT; Path=/; Domain=.twitter.com
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read
+      X-Connection-Hash:
+      - 246f2f0a4288e9bc7364fa77c768cb18
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '450'
+      X-Rate-Limit-Remaining:
+      - '410'
+      X-Rate-Limit-Reset:
+      - '1580426365'
+      X-Response-Time:
+      - '136'
+      X-Transaction:
+      - 002ae53100953523
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: '{"statuses":[],"search_metadata":{"completed_in":0.005,"max_id":1220711954764980225,"max_id_str":"1220711954764980225","query":"%23udesc","refresh_url":"?since_id=1220711954764980225&q=%23udesc&include_entities=1","count":100,"since_id":0,"since_id_str":"0"}}'
+    http_version: 
+  recorded_at: Thu, 30 Jan 2020 23:10:19 GMT
+recorded_with: VCR 5.0.0
