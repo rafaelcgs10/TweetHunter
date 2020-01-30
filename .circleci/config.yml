@@ -15,11 +15,11 @@ jobs:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: root
-      - image: postgres:latest
+      - image: postgres:9.6.2-alpine
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: myDB
-      - image: redis:latest
+      - image: redis:6.0-rc1-alpine3.11
     steps: 
       - checkout
       - run: 
