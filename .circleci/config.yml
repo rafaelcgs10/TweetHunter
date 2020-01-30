@@ -10,14 +10,11 @@ orbs:
 jobs: 
   build: 
     docker: 
-      - image: circleci/ruby:2.7.0
+      - image: circleci/ruby:2.7.0-node-browsers
         environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: root
-      - image: circleci/ruby:2.4.4-node-browsers
-        environment:
-          RAILS_ENV: test
       - image: postgres:latest
         environment:
           POSTGRES_USER: root
@@ -54,8 +51,17 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
-      - run: NODE_ENV=test bundle exec rails assets:precompile
-
+      - restore_cache:
+          keys:
+            - yarn-cache-v1-{{ checksum "yarn.lock" }}
+            - yarn-cache-v1-
+      - run: yarn install --cache-folder ~/.cache/yarn
+      - run: bundle exec rake webpacker:compile
+      - save_cache:
+          key: yarn-cache-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+	  
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
