@@ -54,6 +54,8 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
+      - run: NODE_ENV=test bundle exec rails webpacker:compile
+
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
