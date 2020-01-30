@@ -102,13 +102,7 @@ jobs:
 
 workflows:
   version: 2
-  build-test:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - dev
+
   build-deploy:
     jobs:
       - build:
@@ -116,6 +110,7 @@ workflows:
             branches:
               only:
                 - dev
+                - master
       - deploy:
           requires:
             - build
