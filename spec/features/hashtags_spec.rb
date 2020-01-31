@@ -51,7 +51,7 @@ RSpec.feature 'Hashtags', type: :feature do
 
     scenario 'should not have this tweet about #cat' do
       visit root_path
-      within("//td[@id='show_#cat']") do
+      within(:xpath, "//div[@id='show_\#cat']") do
         click_link 'Show'
       end
       expect(page).to_not have_content("I think your cat likes me #cat")
@@ -59,23 +59,23 @@ RSpec.feature 'Hashtags', type: :feature do
 
     scenario 'should have tweet about #cat' do
       visit root_path
-      within("//td[@id='show_#cat']") do
+      within(:xpath, "//div[@id='show_#cat']") do
         click_link 'Show'
       end
-      within("//tr[@id='tweet_id_3']") do
+      within(:xpath, "//div[@id='tweet_id_3']") do
         expect(page).to have_content("I think your cat doesn't like me #cat")
       end
     end
 
     scenario 'should have two tweets about #dog' do
       visit root_path
-      within("//td[@id='show_#dog']") do
+      within(:xpath, "//div[@id='show_#dog']") do
         click_link 'Show'
       end
-      within("//tr[@id='tweet_id_1']") do
+      within("//div[@id='tweet_id_1']") do
         expect(page).to have_content('I like my #dog')
       end
-      within("//tr[@id='tweet_id_2']") do
+      within("div//[@id='tweet_id_2']") do
         expect(page).to have_content('I like your #dog')
       end
     end
@@ -87,7 +87,7 @@ RSpec.feature 'Hashtags', type: :feature do
     scenario 'should delete' do
       visit root_path
       expect(page).to have_content('#cat')
-      within("//td[@id='delete_#cat']") do
+      within("//[@id='delete_#cat']") do
         click_link 'Delete'
       end
       expect(page).to_not have_content('#cat')

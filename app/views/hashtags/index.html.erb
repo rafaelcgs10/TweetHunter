@@ -10,11 +10,15 @@
 	<div class="card mb-4" style="min-width: 10rem; max-width: 10rem;">
 	  <div class="card-body">
 	    <h5 class="card-title"><%= tag.hashtag %></h5>
-	    <a href="#" class="card-link" id=show_<%= tag.hashtag %>>
-	      <%= link_to 'Show', hashtag_path(tag) %> </a>
-	    <a href="#" class="card-link" id=delete_<%= tag.hashtag %>>
-	      <%= link_to 'Delete', hashtag_path(tag), method: :delete,
-		  data: { confirm: 'Are you sure?' } %> </a>
+	    <div class="row">
+	      <div id="show_<%= tag.hashtag %>" class="card-link" >
+		<%= link_to 'Show', hashtag_path(tag) %>
+	      </div>
+	      <div class="card-link" id=delete_<%= tag.hashtag %>>
+		<%= link_to 'Delete', hashtag_path(tag), method: :delete,
+		    data: { confirm: 'Are you sure?' } %>
+	      </div>
+	    </div>
 	  </div>
 	</div>
 	<% end %>
