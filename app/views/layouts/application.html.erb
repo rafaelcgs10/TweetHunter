@@ -10,7 +10,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-      <%= yield %>
+  <body class="bg-dark">
+    <div class="container">
+      <div class="py-5 text-center">
+	<div class="jumbotron my-auto">
+	  <h1 class="display-4 text-truncate">Tweet Hunter</h1>
+	  <div class="px-2 text-center">
+	    <p class="lead">Where Tweets are Hunted by You</p>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <%= yield %>
   </body>
 </html>
