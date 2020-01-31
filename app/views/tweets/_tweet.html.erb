@@ -1,5 +1,15 @@
-<tr id=tweet_id_<%= tweet.tweet_id %>>
-  <td><%= tweet.name %></td>
-  <td><%= tweet.content %></td>
-  <td><%= tweet.date %></td>
-<tr>
+<div class="card mb-4" style="min-width: 20rem; max-width: 20rem;">
+  <div class="card-body" id=tweet_id_<%= tweet.tweet_id %>>
+    <p class="card-text"><small> <%= tweet.content %> </small></p>
+  </div>
+  <div class="card-footer text-muted">
+    <div class="row">
+      <div>
+	<footer class="blockquote-footer"> <%= tweet.name %> </footer>
+      </div>
+      <div>
+	<p class="card-text"><font size="1" > <%= tweet.date %> </font></p>
+      </div>
+    </div>
+  </div>
+</div>
