@@ -15,12 +15,20 @@
 </div>
 <% end %>
 
-<div class="form-group">
-  <%= form.label :hashtag %><br>
-  <%= form.text_field :hashtag %>
-</div>
+<div class="container v-10 d-flex justify-content-center">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-auto">
+	<div class="form-group">
+	  <%= form.label :hashtag %><br>
+	  <%= form.text_field :hashtag, class: "form-control"  %>
+	</div>
 
-<%= form.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>  
+	<%= form.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>  
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
 
 <%= link_to 'Back', hashtags_path %>
