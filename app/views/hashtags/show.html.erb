@@ -12,11 +12,17 @@
 </div>
 
 <div class="row">
-  <div class="card-deck justify-content-center">
-    <%= render partial: "tweets/tweet", collection: @tweets %>
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <%= render partial: "tweets/tweet", collection: @tweets %>
+    </div>
   </div>
+
 </div>
 
 <div class="row">
-  <%= link_to 'Back', hashtags_path %>
+  <p>
+    <%= link_to 'Back', hashtags_path %>
+  </p>
 </div>

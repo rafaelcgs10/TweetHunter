@@ -1,14 +1,20 @@
-<div class="card mb-4" style="min-width: 20rem; max-width: 33rem; min-height: 15rem; max-height: 17rem;">
-  <div class="card-body" id="tweet_id_<%= tweet.tweet_id %>" >
-    <p class="card-text"><small> <%= tweet.content %> </small></p>
-  </div>
-  <div class="card-footer text-muted">
-    <div class="row">
-      <div>
-	<footer class="blockquote-footer"> <%= tweet.name %> </footer>
+<div class="col-auto mb-4 mr-2">
+  <div class="container" style="width: 21rem; max-height: 20rem;">
+    <div class="card">
+      <div class="card-body" id="tweet_id_<%= tweet.tweet_id %>" >
+	<div class="row d-flex flex-row">
+	  <div class="container d-flex justify-content-center">
+	    <p class="card-text text-center"> <%= tweet.content %></p>
+	  </div>
+	</div>
+	<div class="row d-flex">
+	  <div class="container d-flex flex-row-reverse">
+	    <footer class="blockquote-footer"> <%= tweet.name %> </footer>
+	  </div>
+	</div>
       </div>
-      <div>
-	<p class="card-text"><font size="1" > <%= tweet.date %> </font></p>
+      <div class="card-footer text-center text-muted">
+	<footer > <%= tweet.date %> </footer>
       </div>
     </div>
   </div>

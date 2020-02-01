@@ -1,29 +1,16 @@
 <div class="row">
   <div class="container-fluid mt-4">
-  <p>
-    <%= link_to 'New hashtag', new_hashtag_path, class: "btn btn-primary" %>
-  </p>
-</div>
+    <p>
+      <%= link_to 'New hashtag', new_hashtag_path, class: "btn btn-primary" %>
+    </p>
+  </div>
 </div>
 
 <div class="row">
 
   <div class="container-fluid mt-4">
     <div class="row justify-content-between">
-
-      <% @hashtags.each do |tag| %>
-      <div class="col-auto mb-4">
-	<div class="card" style="width: 12rem";>
-	  <div class="card-body">
-	    <h2 class="text-truncate"><%= tag.hashtag %></h2>
-	    <%= link_to 'Show', hashtag_path(tag), id:"show_#{tag.hashtag}", class: "btn btn-secondary btn-sm" %>
-	    <%= link_to 'Delete', hashtag_path(tag), method: :delete,
-		data: { confirm: 'Are you sure?' }, id:"delete_#{tag.hashtag}", class: "btn btn-danger btn-sm" %>
-	  </div>
-	</div>
-      </div>
-      <% end %>
-
+      <%= render partial: "hashtag", collection: @hashtags, as: 'tag' %>
     </div>
   </div>
 
