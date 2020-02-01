@@ -11,7 +11,7 @@ RSpec.feature 'Hashtags', type: :feature do
         fill_in 'Hashtag', with: '#udesc'
       end
       VCR.use_cassette("synopsis2") do
-        click_button 'Save Hashtag'
+        click_button 'Hunt Tweets'
         expect(page).to have_content('Hashtag: #udesc')
       end
     end
@@ -22,7 +22,7 @@ RSpec.feature 'Hashtags', type: :feature do
       within 'form' do
         fill_in 'Hashtag', with: 'udesc'
       end
-      click_button 'Save Hashtag'
+      click_button 'Hunt Tweets'
       expect(page).to have_content('field is not a valid query')
     end
   end
