@@ -13,8 +13,8 @@ class TweetSearchJob
   end
 
   def self.search_hashtag(hashtag, number)
-    hashtag.gsub(' AND ', ' ')
-    CLIENT.search(hashtag, tweet_mode: 'extended').take(number).each do |status|
+    query = hashtag.gsub(' AND ', ' ')
+    CLIENT.search(query, tweet_mode: 'extended').take(number).each do |status|
       content = if status.retweet?
                   status.retweeted_status.attrs[:full_text]
                 elsif status.truncated? && status.attrs[:extended_tweet]
@@ -22,6 +22,7 @@ class TweetSearchJob
                 else
                   status.attrs[:text] || status.attrs[:full_text]
                 end
+      puts "hunting: #{query}"
       Tweet.create(name: status.user.screen_name, tweet_id: status.id,
                    hashtag: hashtag, content: content, date: status.created_at)
     end
