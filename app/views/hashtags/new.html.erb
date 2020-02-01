@@ -15,17 +15,31 @@
 </div>
 <% end %>
 
-<div class="container v-10 d-flex justify-content-center">
-  <div class="jumbotron">
-    <div class="row">
+<div class="container d-flex justify-content-center" style="max-width: 25rem; max-height: 25rem;">
+  <div class="jumbotron" style="max-width: 25rem; max-height: 25rem;">
+    <div class="container d-flex justify-content-left" style="width: 21rem; max-height: 20rem;">
+      <p>
+	Enter a hashtag (a word starting with #) or a combination of hashtags using
+	the operators OR and AND.
+      </p>
+    </div>
+    <div class="container d-flex justify-content-left" style="width: 21rem; max-height: 20rem;">
+      <p>
+	Examples: <br>
+        #cat; #cat AND #dog; #cat OR #dog; <br>
+        #cat AND #dog OR #bear. <br>
+      </p>
+    </div>
+    <div class="container d-flex justify-content-center" style="width: 21rem; max-height: 20rem;">
       <div class="col-md-auto">
 	<div class="form-group">
-	  <%= form.label :hashtag %><br>
 	  <%= form.text_field :hashtag, class: "form-control"  %>
 	</div>
-
-	<%= form.submit "Hunt Tweets", class: "btn btn-lg btn-primary btn-block" %>  
       </div>
+    </div>
+
+    <div class="container d-flex justify-content-left" style="width: 21rem; max-height: 20rem;">
+      <%= form.submit "Hunt Tweets", class: "btn btn-lg btn-primary btn-block" %>  
     </div>
   </div>
 </div>
