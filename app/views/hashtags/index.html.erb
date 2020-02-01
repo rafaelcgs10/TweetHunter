@@ -1,35 +1,28 @@
-<div class="container-fluid">
-  <div class="row justify-content-left">
-    <p>
-      <%= link_to 'New hashtag', new_hashtag_path, class: "btn btn-primary" %>
-    </p>
-  </div>
+<div class="row">
+  <p>
+    <%= link_to 'New hashtag', new_hashtag_path, class: "btn btn-primary" %>
+  </p>
+</div>
 
-  <div class="row">
+<div class="row">
 
-    <div class="card-deck">
-      <div class="row justify-content-between">
+  <div class="container-fluid mt-4">
+    <div class="row justify-content-between">
 
-	<% @hashtags.each do |tag| %>
-	<div class="card text-white bg-dark mb-4" style="min-width: 12rem; max-width: 12rem; min-height: 4rem; max-height: 8rem">
+      <% @hashtags.each do |tag| %>
+      <div class="col-auto mb-4">
+	<div class="card" style="width: 12rem";>
 	  <div class="card-body">
-	    <div class="row">
-	      <div class="col align-self-center text-center">
-		<h2 class="text-truncate"><%= tag.hashtag %></h2>
-	      </div>
-	    </div>
-	    <div class="row justify-content-between">
-		<%= link_to 'Show', hashtag_path(tag), id:"show_#{tag.hashtag}", class: "btn btn-secondary" %>
-		<%= link_to 'Delete', hashtag_path(tag), method: :delete,
-		    data: { confirm: 'Are you sure?' }, id:"delete_#{tag.hashtag}", class: "btn btn-danger" %>
-	    </div>
+	    <h2 class="text-truncate"><%= tag.hashtag %></h2>
+	    <%= link_to 'Show', hashtag_path(tag), id:"show_#{tag.hashtag}", class: "btn btn-secondary btn-sm" %>
+	    <%= link_to 'Delete', hashtag_path(tag), method: :delete,
+		data: { confirm: 'Are you sure?' }, id:"delete_#{tag.hashtag}", class: "btn btn-danger btn-sm" %>
 	  </div>
 	</div>
-	<% end %>
-
       </div>
-    </div>
+      <% end %>
 
+    </div>
   </div>
-</div>
+
 </div>

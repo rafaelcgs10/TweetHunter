@@ -10,19 +10,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="bg-dark">
+  <body>
     <div class="container">
-      <div class="py-5 text-center">
-	<div class="jumbotron my-auto">
-	  <h1 class="display-4 text-truncate">Tweet Hunter</h1>
-	  <div class="px-2 text-center">
-	    <p class="lead">Where Tweets are Hunted by You</p>
-	  </div>
+      <div class="row  justify-content-center">
+	<div class="page-header text-center">
+	  <h1>Tweet Hunter</h1>
+	  <p class="lead text-center">Where Tweets are Hunted by You</p>
 	</div>
       </div>
-    </div>
 
-    <div class="container flex-row justify-content-center">
       <%= yield %>
     </div>
   </body>

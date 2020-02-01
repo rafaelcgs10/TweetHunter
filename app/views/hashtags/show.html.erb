@@ -1,24 +1,22 @@
-<div class="container">
-  <div class="row">
-    <p>
-      <%= link_to 'Back', hashtags_path %>
-    </p>
-  </div>
-
-  <div class="row">
-    <p>
-      <strong>Hashtag:</strong>
-      <%= @hashtag.hashtag %>
-    </p>
-  </div>
-
-  <div class="row">
-    <div class="card-deck justify-content-center">
-	<%= render partial: "tweets/tweet", collection: @tweets %>
-    </div>
-  </div>
-
-  <div class="row">
+<div class="row">
+  <p>
     <%= link_to 'Back', hashtags_path %>
+  </p>
+</div>
+
+<div class="row">
+  <p>
+    <strong>Hashtag:</strong>
+    <%= @hashtag.hashtag %>
+  </p>
+</div>
+
+<div class="row">
+  <div class="card-deck justify-content-center">
+    <%= render partial: "tweets/tweet", collection: @tweets %>
   </div>
+</div>
+
+<div class="row">
+  <%= link_to 'Back', hashtags_path %>
 </div>
