@@ -1,23 +1,23 @@
+# coding: utf-8
 require 'rails_helper'
 
 RSpec.describe TweetSearchJob, type: :job do
   context 'run the tweet search job' do
-    fixtures :hashtags
 
     scenario 'should perform' do
       VCR.use_cassette("synopsis") do
         TweetSearchJob.perform(1)
       end
-      tweet = Tweet.find_by(tweet_id: '1223020111071711235')
-      expect(tweet.content).to include('Despite how sad he is he must d his physiotherapy')
+      tweet = Tweet.find_by(tweet_id: '1223409824643395586')
+      expect(tweet.content).to eq('Woo it’s #FridayNight! Happy #FridayFunDay everybody! I’m ready to do something. I wanna go out and have some fun! Poppy better not ruin this for me... #dog #dogs #dogsoftwitter #dogsofinstagram #pug #pugs @TheEllenShow @jimmyfallon #lulunatics #doglover # https://t.co/wnt58BzjuR')
     end
 
     scenario 'should perform too' do
-      VCR.use_cassette("synopsis3") do
+      VCR.use_cassette("synopsis") do
         TweetSearchJob.perform(1)
       end
-      tweet = Tweet.find_by(tweet_id: '1223020579726352390')
-      expect(tweet.name).to eq('line_sidore')
+      tweet = Tweet.find_by(tweet_id: '1223409921733144576')
+      expect(tweet.name).to eq('MariaCa27479197')
     end
   end
 end

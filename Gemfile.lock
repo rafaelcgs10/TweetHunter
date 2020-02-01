@@ -66,9 +66,6 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bootstrap_form (4.3.0)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
     buftok (0.2.0)
     builder (3.2.4)
     byebug (11.1.1)
@@ -363,7 +360,6 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bootsnap (>= 1.4.2)
-  bootstrap_form (~> 4.0)
   byebug
   capybara (>= 2.15)
   codecov
