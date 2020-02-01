@@ -16,6 +16,7 @@ class HashtagsController < ApplicationController
     @hashtag = Hashtag.find(params[:id])
     @tweets = Tweet.where(hashtag: @hashtag.hashtag)
     @tweets.destroy_all
+    DeleteTweetsJob.perform(@tweets)
     @hashtag.destroy
     redirect_to hashtags_path
   end

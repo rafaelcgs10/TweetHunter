@@ -4,3 +4,10 @@ twitter:
   args: 10
   queue: twitter
   description: Runs the tweet search method
+
+clean:
+  every: 12h
+  class: DeleteOldTweetsJob
+  args: 
+  queue: delete
+  description: Hard delete old tweets
