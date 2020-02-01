@@ -5,8 +5,8 @@ class DeleteOldTweetsJob
   @queue = :delete
 
   def self.perform
-    tweets = Tweet.where("created_at > ?", 1.days.ago)
-    tweets.destroy_all
-    tweets.destroy_all
+    @tweets = Tweet.where("created_at > ?", 1.days.ago)
+    @tweets.destroy_all
+    @tweets.destroy_all
   end
 end
