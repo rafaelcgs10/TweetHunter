@@ -23,8 +23,14 @@ class TweetSearchJob
                   status.attrs[:text] || status.attrs[:full_text]
                 end
       puts "hunting: #{query}"
-      Tweet.create(name: status.user.screen_name, tweet_id: status.id,
-                   hashtag: hashtag, content: content, date: status.created_at)
+      @tweet = Tweet.create(name: status.user.screen_name, tweet_id: status.id,
+                            hashtag: hashtag, content: content, date: status.created_at)
+      if @tweet.save
+        puts "broadcasting: #{@tweet.content}"
+        @res = ActionCable.server.broadcast "tweets_channel",
+                                     content: @tweet.content 
+        puts "res: #{@res}"
+      end
     end
   end
 end
