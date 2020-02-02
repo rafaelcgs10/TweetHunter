@@ -6,7 +6,7 @@ twitter:
   description: Runs the tweet search method
 
 clean:
-  every: 12h
+  every: 1h
   class: DeleteOldTweetsJob
   args: 
   queue: delete
