@@ -14,8 +14,26 @@
 #  content    :text
 #
 
-
 class Tweet < ApplicationRecord
   acts_as_paranoid
   validates_uniqueness_of :tweet_id, scope: :hashtag
+
+  def self.get_full_content(status)
+    @content = if status.retweet?
+                 untrucate(status.retweeted_status)
+               else
+                 untrucate(status)
+               end
+    @content
+  end
+
+  def self.untrucate(status)
+    if status.truncated? && status.attrs[:extended_tweet]
+      puts 'aqui1'
+      status.attrs[:extended_tweet][:full_text]
+    else
+      puts 'aqui2'
+      status.attrs[:full_text] || status.attrs[:text]
+    end
+  end
 end

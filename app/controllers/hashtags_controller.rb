@@ -10,9 +10,6 @@ class HashtagsController < ApplicationController
   def show
     @hashtag = Hashtag.find(params[:id])
     @tweets = Tweet.where(hashtag: @hashtag.hashtag)
-    STREAM.filter(track: @hashtag.hashtag) do |object|
-      puts object.text if object.is_a?(Twitter::Tweet)
-    end
   end
 
   def destroy
@@ -26,7 +23,7 @@ class HashtagsController < ApplicationController
   def create
     @hashtag = Hashtag.new(hastag_params)
     if @hashtag.save
-      TweetSearchJob.search_hashtag(@hashtag.hashtag, 30)
+      TweetSearchJob.search_hashtag(@hashtag.hashtag, 20)
       redirect_to @hashtag
     else
       render 'new'
