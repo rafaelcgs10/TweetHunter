@@ -5,6 +5,6 @@ class DeleteTweetsJob
   @queue = :delete
 
   def self.perform(tweets)
-    tweets.destroy_all
+    tweets.delete_all!
   end
 end
