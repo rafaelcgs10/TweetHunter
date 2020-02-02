@@ -17,5 +17,5 @@
 
 class Tweet < ApplicationRecord
   acts_as_paranoid
-  validates_uniqueness_of :tweet_id
+  validates_uniqueness_of :tweet_id, scope: :hashtag
 end
