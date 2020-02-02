@@ -10,6 +10,9 @@ class HashtagsController < ApplicationController
   def show
     @hashtag = Hashtag.find(params[:id])
     @tweets = Tweet.where(hashtag: @hashtag.hashtag)
+    STREAM.filter(track: @hashtag.hashtag) do |object|
+      puts object.text if object.is_a?(Twitter::Tweet)
+    end
   end
 
   def destroy
