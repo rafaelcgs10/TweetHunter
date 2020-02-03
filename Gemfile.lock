@@ -157,6 +157,7 @@ GEM
     parser (2.7.0.2)
       ast (~> 2.4.0)
     pg (1.2.2)
+    polyglot (0.3.5)
     public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
@@ -308,6 +309,8 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    treetop (1.6.10)
+      polyglot (~> 0.3)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -386,6 +389,7 @@ DEPENDENCIES
   solargraph
   spring
   spring-watcher-listen (~> 2.0.0)
+  treetop (~> 1.6, >= 1.6.8)
   turbolinks (~> 5)
   twitter
   tzinfo-data
