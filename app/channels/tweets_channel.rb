@@ -1,7 +1,8 @@
 class TweetsChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    stream_from "tweets_channel"
+    hashtag = Hashtag.find(params[:id])
+    stream_for hashtag
   end
 
   def unsubscribed

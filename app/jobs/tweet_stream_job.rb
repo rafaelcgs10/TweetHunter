@@ -15,8 +15,13 @@ class TweetStreamJob
       content = Tweet.get_full_content(status)
       puts content
       hashtags = Hashtag.hashtags
-      hashtags.select! do |hashtag|
-        QueryMatchUtil.match?(hashtag, content)
+      hashtags.each do |hashtag|
+        next unless QueryMatchUtil.match?(hashtag, content)
+
+        puts "sending: #{content} to the tweets_channel_#{hashtag}"
+        res = ActionCable.server.broadcast "tweets_channel",
+                                           content: content
+        puts "res: #{res}"
       end
       puts "hashtags: #{hashtags}"
       puts '____________________'
