@@ -13,7 +13,13 @@ class TweetStreamJob
     puts "streaming for #{@query}"
     STREAM.filter(track: @query, tweet_mode: 'extended') do |status|
       puts '_--------------------_'
-      puts Tweet.get_full_content(status)
+      content = Tweet.get_full_content(status)
+      puts content
+      hashtags = Hashtag.hashtags
+      hashtags.select! do |hashtag|
+        hashtag.match? content
+      end
+      puts "hashtags: #{hashtags}"
       puts '____________________'
       @query = Hashtag.stream_query
       puts "streaming for #{@query}"

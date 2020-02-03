@@ -1,0 +1,62 @@
+grammar QueryGrammar
+  rule expression
+    s d:disjunction s
+    { def get_regex; d.get_regex; end }
+  end
+
+  rule disjunction
+    conjunction tail:(or s conjunction s)*
+    { def get_regex
+        tail.elements.inject(conjunction.get_regex) do |left, last|
+          '(' + left +'|' + last.conjunction.get_regex + ')'
+        end
+      end
+    }
+  end
+ 
+  rule conjunction
+    p:primitive tail:(and s primitive s)*
+    { def get_regex
+        if tail.empty?
+	  p.get_regex
+	else
+          tail.elements.inject('(?=.*' + p.get_regex + ')') do |e, l|
+            e + '(?=.*' + l.primitive.get_regex + ')'
+          end
+        end
+      end
+    }
+  end
+
+  rule primitive
+    '(' expression ')' s { def get_regex; '(' + expression.get_regex + ')'; end }
+    /
+    tag s { def get_regex; tag.get_regex; end }
+  end
+  
+  rule and
+    'AND' !tag s 
+  end
+
+  rule or
+    'OR' !tag s
+  end
+
+  rule tag
+    '#' t:([[:alnum:]_]+) s
+    { def get_regex
+        "\\B#" + t.text_value + "\\b"
+      end
+    }
+  end
+
+  # Optional space
+  rule s
+    S?
+  end
+
+  # Mandatory space
+  rule S 
+    [ \t\n\r]*
+  end
+end
