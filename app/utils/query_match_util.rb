@@ -3,12 +3,11 @@
 require 'treetop'
 
 class QueryMatchUtil
-  def self.match(query, string)
+  def self.match?(query, string)
     Treetop.load 'app/utils/grammars/query'
     parser = QueryGrammarParser.new
     parsed = parser.parse(query)
-    puts parsed.get_regex
-    regex = Regexp.new parsed.get_regex
+    regex = Regexp.new(parsed.get_regex, Regexp::IGNORECASE)
     regex.match?(string)
   end
 

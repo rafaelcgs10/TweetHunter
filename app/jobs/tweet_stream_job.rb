@@ -9,20 +9,18 @@ class TweetStreamJob
   end
 
   def self.stream_hashtags
-    @query = Hashtag.stream_query
-    puts "streaming for #{@query}"
+    @query = QueryMatchUtil.stream_queries
     STREAM.filter(track: @query, tweet_mode: 'extended') do |status|
       puts '_--------------------_'
       content = Tweet.get_full_content(status)
       puts content
       hashtags = Hashtag.hashtags
       hashtags.select! do |hashtag|
-        hashtag.match? content
+        QueryMatchUtil.match?(hashtag, content)
       end
       puts "hashtags: #{hashtags}"
       puts '____________________'
-      @query = Hashtag.stream_query
-      puts "streaming for #{@query}"
+      @query = QueryMatchUtil.stream_queries
     end
   end
 end
