@@ -15,7 +15,6 @@ class TweetSearchJob
   def self.search_hashtag(hashtag, number)
     query = hashtag.hashtag.gsub(' AND ', ' ')
     CLIENT.search(query, tweet_mode: 'extended').take(number).each do |status|
-      puts "hunting: #{query}"
       content = Tweet.get_full_content(status)
       tweet = Tweet.new(name: status.user.screen_name, tweet_id: status.id,
                          hashtag: hashtag.hashtag, content: content,
