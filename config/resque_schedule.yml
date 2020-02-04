@@ -1,12 +1,5 @@
-twitter:
-  every: 30s
-  class: TweetSearchJob
-  args: 10
-  queue: twitter
-  description: Runs the tweet search method
-
 clean:
-  every: 1h
+  every: 12h
   class: DeleteOldTweetsJob
   args: 
   queue: delete
