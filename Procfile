@@ -1,1 +1,1 @@
-resque: QUEUE=* bundle exec rake environment resque:work & QUEUE=* bundle exec rake environment resque:scheduler & wait -n
+resque: QUEUE=* bundle exec rake environment resque:work & QUEUE=* bundle exec rake environment resque:scheduler & rake tweet_stream:start & wait -n

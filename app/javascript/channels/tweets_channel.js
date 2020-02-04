@@ -3,6 +3,7 @@ import consumer from "./consumer"
 $(document).on('turbolinks:load', function () {
     if(this.subscription) {
 	consumer.subscriptions.remove(this.subscription);
+	console.log("unsubing");
     }
 
     if($('#hashtag').attr('data-hashtag-id')) {
@@ -14,6 +15,7 @@ $(document).on('turbolinks:load', function () {
 	    },
 
 	    received(data) {
+		$('#tweets-card').prepend( data.content)
 	    }
 	});
 	this.subscription = subscription;

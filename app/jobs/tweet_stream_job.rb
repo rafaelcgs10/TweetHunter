@@ -23,10 +23,10 @@ class TweetStreamJob
                           date: status.created_at)
         next unless tweet.save
 
-        TweetsChannel.broadcast_to(hashtag, content: render_tweet(tweet))
+        res = TweetsChannel.broadcast_to(hashtag, content: render_tweet(tweet))
         puts "sending: #{content} to the tweets_channel_#{hashtag.hashtag}"
+        puts "res: #{res}"
       end
-      puts "hashtags: #{hashtags}"
       puts '____________________'
       @query = QueryMatchUtil.stream_queries
     end
