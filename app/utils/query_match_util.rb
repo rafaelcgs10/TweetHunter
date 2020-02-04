@@ -5,10 +5,10 @@ require 'treetop'
 class QueryMatchUtil
   def self.valid?(string)
     Treetop.load 'app/utils/grammars/query'
-    parser = QueryGrammarParser.new
-    result = parser.parse(string)
-    if result
-      true
+    if !string.nil? && !string.empty?
+      parser = QueryGrammarParser.new
+      result = parser.parse(string)
+      result
     else
       false
     end

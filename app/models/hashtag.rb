@@ -12,8 +12,7 @@
 
 class Hashtag < ApplicationRecord
   validates_uniqueness_of :hashtag
-  validates :hashtag,
-            presence: true
+  validates :hashtag, :presence => true
   validate :valid_query
 
   def valid_query

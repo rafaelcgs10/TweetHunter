@@ -23,7 +23,7 @@ RSpec.feature 'Hashtags', type: :feature do
         fill_in 'Hashtag', with: 'udesc'
       end
       click_button 'Hunt Tweets'
-      expect(page).to have_content('field is not a valid query')
+      expect(page).to have_content('is not a well constructed query')
     end
   end
 
