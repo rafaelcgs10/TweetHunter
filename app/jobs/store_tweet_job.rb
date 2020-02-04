@@ -5,7 +5,6 @@ class StoreTweetJob
   @queue = :store
 
   def self.perform(status, content)
-    puts "status: #{status}"
     hashtags = Hashtag.all
     hashtags.each do |hashtag|
       store(hashtag, status, content) 
