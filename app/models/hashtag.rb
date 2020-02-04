@@ -13,19 +13,16 @@
 class Hashtag < ApplicationRecord
   validates_uniqueness_of :hashtag
   validates :hashtag,
-            presence: true,
-            format: { with: /\A#[a-zA-Z0-9]+( (OR|AND) #[a-zA-Z0-0]+)*\z/,
-                      message: 'field is not a valid query' }
+            presence: true
+  validate :valid_query
+
+  def valid_query
+    unless QueryMatchUtil.valid? hashtag
+      errors.add(:hashtag, 'is not a well constructed query')
+    end
+  end
 
   def self.hashtags
     all.map(&:hashtag)
   end
-
-  # def self.stream_query
-  #   @hashtags = all
-  #   @queries = @hashtags.map do |hashtag|
-  #     hashtag.hashtag.gsub(' AND ', ' ')
-  #   end
-  #   @queries.join(',')
-  # end
 end

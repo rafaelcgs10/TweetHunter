@@ -3,6 +3,17 @@
 require 'treetop'
 
 class QueryMatchUtil
+  def self.valid?(string)
+    Treetop.load 'app/utils/grammars/query'
+    parser = QueryGrammarParser.new
+    result = parser.parse(string)
+    if result
+      true
+    else
+      false
+    end
+  end
+
   def self.match?(query, string)
     Treetop.load 'app/utils/grammars/query'
     parser = QueryGrammarParser.new
