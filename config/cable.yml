@@ -8,4 +8,4 @@ test:
 
 production:
   adapter: 
-  url: <%= ENV.fetch("REDISTOGO_URL") { "redis://localhost:6379/1" } %>
+  url: redis://redistogo:c857d1394dde8ff2b54e31f817d1b065@dory.redistogo.com:9823/
