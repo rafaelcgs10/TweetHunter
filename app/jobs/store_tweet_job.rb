@@ -4,17 +4,24 @@
 class StoreTweetJob
   @queue = :store
 
-  def self.perform(hashtag, status)
-    store(hashtag, status)
+  def self.perform(status, content)
+    puts "status: #{status}"
+    hashtags = Hashtag.all
+    hashtags.each do |hashtag|
+      store(hashtag, status, content) 
+    end
   end
 
-  def self.store(hashtag, status)
-    content = Tweet.get_full_content(status)
-    tweet = Tweet.new(name: status.user.screen_name, tweet_id: status.id,
-                      hashtag: hashtag, content: content,
-                      date: status.created_at)
-    TweetsChannel.broadcast_to(hashtag, content: render_tweet(tweet)) if tweet.save
-    puts "sending: #{content}"
+  def self.store(hashtag, status, content)
+    if QueryMatchUtil.match?(hashtag.hashtag, content)
+      tweet = Tweet.new(name: status["user"]["screen_name"], tweet_id: status["id"],
+                        hashtag: hashtag.hashtag, content: content,
+                        date: status["created_at"])
+      if tweet.save
+        TweetsChannel.broadcast_to(hashtag, content: render_tweet(tweet))
+      end
+      puts "sending: #{content}"
+    end
   end
 
   def self.render_tweet(tweet)

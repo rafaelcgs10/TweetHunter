@@ -8,13 +8,8 @@ namespace :tweet_stream do
   def stream_hashtags
     @query = QueryMatchUtil.stream_queries
     STREAM.filter(track: @query, tweet_mode: 'extended') do |status|
-      hashtags = Hashtag.all
       content = Tweet.get_full_content(status)
-      hashtags.each do |hashtag|
-        if QueryMatchUtil.match?(hashtag.hashtag, content)
-          Resque.enqueue(StoreTweetJob, hashtag, status)
-        end
-      end
+      Resque.enqueue(StoreTweetJob, status, content)
       @query = QueryMatchUtil.stream_queries
     end
   end

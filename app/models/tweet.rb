@@ -20,12 +20,12 @@ class Tweet < ApplicationRecord
   validates_uniqueness_of :tweet_id, scope: :hashtag
   
   def self.get_full_content(status)
-    @content = if status.retweet?
+    content = if status.retweet?
                  untrucate(status.retweeted_status)
                else
                  untrucate(status)
                end
-    @content
+    content
   end
 
   def self.untrucate(status)
