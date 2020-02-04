@@ -18,8 +18,8 @@ class StoreTweetJob
                         date: status["created_at"])
       if tweet.save
         TweetsChannel.broadcast_to(hashtag, content: render_tweet(tweet))
+        puts "sending: #{content}"
       end
-      puts "sending: #{content}"
     end
   end
 
