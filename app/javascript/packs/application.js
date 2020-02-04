@@ -19,5 +19,4 @@ import "../stylesheets/application"
 // const imagePath = (name) => images(name, true)
 
 $(document).on('turbolinks:load', function() {
-    console.log("Hey, we are ready!")
 })

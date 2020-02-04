@@ -3,7 +3,6 @@ import consumer from "./consumer"
 $(document).on('turbolinks:load', function () {
     if(this.subscription) {
 	consumer.subscriptions.remove(this.subscription);
-	console.log("unsubing");
     }
 
     if($('#hashtag').attr('data-hashtag-id')) {
