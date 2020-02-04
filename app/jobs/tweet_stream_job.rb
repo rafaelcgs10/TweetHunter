@@ -14,18 +14,27 @@ class TweetStreamJob
       puts '_--------------------_'
       content = Tweet.get_full_content(status)
       puts content
-      hashtags = Hashtag.hashtags
+      hashtags = Hashtag.all
       hashtags.each do |hashtag|
-        next unless QueryMatchUtil.match?(hashtag, content)
+        next unless QueryMatchUtil.match?(hashtag.hashtag, content)
 
-        puts "sending: #{content} to the tweets_channel_#{hashtag}"
-        res = ActionCable.server.broadcast "tweets_channel",
-                                           content: content
-        puts "res: #{res}"
+        tweet = Tweet.new(name: status.user.screen_name, tweet_id: status.id,
+                          hashtag: hashtag.hashtag, content: content,
+                          date: status.created_at)
+        next unless tweet.save
+
+        TweetsChannel.broadcast_to(hashtag, content: render_tweet(tweet))
+        puts "sending: #{content} to the tweets_channel_#{hashtag.hashtag}"
       end
       puts "hashtags: #{hashtags}"
       puts '____________________'
       @query = QueryMatchUtil.stream_queries
     end
+  end
+
+  def self.render_tweet(tweet)
+    ApplicationController.renderer.render(
+      partial: 'tweets/tweet', locals: { tweet: tweet }
+    )
   end
 end

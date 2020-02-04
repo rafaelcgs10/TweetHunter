@@ -5,9 +5,9 @@ class TweetSearchJob
   @queue = :twitter
 
   def self.perform(number)
-    @hashtags = Hashtag.all
+    hashtags = Hashtag.all
 
-    @hashtags.each do |tag|
+    hashtags.each do |tag|
       search_hashtag(tag, number)
     end
   end
@@ -17,10 +17,10 @@ class TweetSearchJob
     CLIENT.search(query, tweet_mode: 'extended').take(number).each do |status|
       puts "hunting: #{query}"
       content = Tweet.get_full_content(status)
-      @tweet = Tweet.create(name: status.user.screen_name, tweet_id: status.id,
-                            hashtag: hashtag.hashtag, content: content, date: status.created_at)
-      @res = TweetsChannel.broadcast_to(hashtag, content: content)
-      puts "res: #{@res}"
+      tweet = Tweet.new(name: status.user.screen_name, tweet_id: status.id,
+                         hashtag: hashtag.hashtag, content: content,
+                         date: status.created_at)
+      TweetsChannel.broadcast_to(hashtag, content: tweet) if tweet.save
     end
   end
 end

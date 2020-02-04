@@ -9,7 +9,7 @@ class HashtagsController < ApplicationController
 
   def show
     @hashtag = Hashtag.find(params[:id])
-    @tweets = Tweet.where(hashtag: @hashtag.hashtag)
+    @tweets = Tweet.where(hashtag: @hashtag.hashtag).order(date: :desc)
   end
 
   def destroy
@@ -23,7 +23,7 @@ class HashtagsController < ApplicationController
   def create
     @hashtag = Hashtag.new(hastag_params)
     if @hashtag.save
-      TweetSearchJob.search_hashtag(@hashtag.hashtag, 20)
+      TweetSearchJob.search_hashtag(@hashtag, 20)
       redirect_to @hashtag
     else
       render 'new'
