@@ -12,7 +12,7 @@ namespace :tweet_stream do
       content = Tweet.get_full_content(status)
       hashtags.each do |hashtag|
         if QueryMatchUtil.match?(hashtag.hashtag, content)
-          StoreTweetJob.perform(hashtag, status)
+          Resque.enqueue(StoreTweetJob, hashtag, status)
         end
       end
       @query = QueryMatchUtil.stream_queries
