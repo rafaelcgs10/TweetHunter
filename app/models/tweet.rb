@@ -39,7 +39,7 @@ class Tweet < ApplicationRecord
   private
 
   def limit_table
-    if Tweet.count >= 30
+    if Tweet.count >= 6000
       Tweet.first.destroy_fully!
     end
   end
