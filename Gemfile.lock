@@ -378,6 +378,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   randumb
+  redis (~> 4.0)
   rename
   resque
   resque-scheduler
