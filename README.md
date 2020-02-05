@@ -32,10 +32,9 @@ access_token: XXXXXXXX
 access_secret: XXXXXXXX
 ```
 
-6. Create a database in postgres called myDB.
+6. Create a database in postgres called tweet_hunter.
 
-   Make sure that the user is called `rafael` and that it has the password `123456`.
-   You may also customize this in `config/database.yml`
+   You may customize who is the user in `config/database.yml`, but may also skip this!
 
 7. Run `rake db:migrate` from the project folder.
 
