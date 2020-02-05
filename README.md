@@ -1,6 +1,7 @@
 Tweet Hunter
 ===========
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0a6bda44c9aa4a7185a7886de0667e80)](https://app.codacy.com/manual/rafaelcgs10/TweetHunter?utm_source=github.com&utm_medium=referral&utm_content=rafaelcgs10/TweetHunter&utm_campaign=Badge_Grade_Dashboard)
 [![TweetHunter](https://img.shields.io/circleci/build/gh/rafaelcgs10/TweetHunter?style=for-the-badge)](https://circleci.com/gh/rafaelcgs10/TweetHunter)
 [![Codecov](https://img.shields.io/codecov/c/gh/rafaelcgs10/TweetHunter?style=for-the-badge)](https://codecov.io/gh/rafaelcgs10/TweetHunter)
 ![Website](https://img.shields.io/website?label=Go%20to%20Tweet-Hunter&style=for-the-badge&up_message=online&url=https%3A%2F%2Ftweet-hunter.herokuapp.com%2F)
