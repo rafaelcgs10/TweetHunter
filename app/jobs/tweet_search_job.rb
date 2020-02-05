@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 # Why? To implement Twitter search job

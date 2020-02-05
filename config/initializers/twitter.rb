@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 CLIENT = Twitter::REST::Client.new do |config|
