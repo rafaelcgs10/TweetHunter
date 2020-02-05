@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'resque/server'
 require 'resque/scheduler'
 require 'resque/scheduler/server'
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :tweets
-  
+
   root 'hashtags#index'
   mount Resque::Server.new, at: "/resque"
 end

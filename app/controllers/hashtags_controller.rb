@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HashtagsController < ApplicationController
   def index
     @hashtags = Hashtag.all
@@ -9,7 +11,8 @@ class HashtagsController < ApplicationController
 
   def show
     @hashtag = Hashtag.find(params[:id])
-    @tweets = Tweet.where(hashtag: @hashtag.hashtag).order(date: :desc).paginate(page: params[:page], per_page: 20)
+    @tweets = Tweet.where(hashtag: @hashtag.hashtag).order(date: :desc)
+                   .paginate(page: params[:page], per_page: 20)
   end
 
   def destroy

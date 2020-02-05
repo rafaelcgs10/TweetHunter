@@ -12,13 +12,15 @@
 
 class Hashtag < ApplicationRecord
   validates_uniqueness_of :hashtag
-  validates :hashtag, :presence => true
+  validates :hashtag, presence: true
   validate :valid_query
 
   def valid_query
+    # rubocop:disable Style/GuardClause
     unless QueryMatchUtil.valid? hashtag
       errors.add(:hashtag, 'is not a well constructed query')
     end
+    # rubocop:enable Style/GuardClause
   end
 
   def self.hashtags

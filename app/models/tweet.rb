@@ -18,13 +18,13 @@ class Tweet < ApplicationRecord
   before_create :limit_table
   acts_as_paranoid
   validates_uniqueness_of :tweet_id, scope: :hashtag
-  
+
   def self.get_full_content(status)
     content = if status.retweet?
-                 untrucate(status.retweeted_status)
-               else
-                 untrucate(status)
-               end
+                untrucate(status.retweeted_status)
+              else
+                untrucate(status)
+              end
     content
   end
 
@@ -39,8 +39,6 @@ class Tweet < ApplicationRecord
   private
 
   def limit_table
-    if Tweet.count >= 6000
-      Tweet.first.destroy_fully!
-    end
+    Tweet.first.destroy_fully! if Tweet.count >= 6000
   end
 end

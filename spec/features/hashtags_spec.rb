@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.feature 'Hashtags', type: :feature do
   context 'create new hashtag' do
     scenario 'should create' do
@@ -10,7 +11,7 @@ RSpec.feature 'Hashtags', type: :feature do
       within 'form' do
         fill_in 'Hashtag', with: '#udesc'
       end
-      VCR.use_cassette("synopsis2") do
+      VCR.use_cassette('synopsis2') do
         click_button 'Hunt Tweets'
         expect(page).to have_content('Hashtag: #udesc')
       end
@@ -52,12 +53,12 @@ RSpec.feature 'Hashtags', type: :feature do
     scenario 'should not have this tweet about #cat' do
       visit root_path
       page.find(:xpath, "//a[@id='show_\#cat']").click
-      expect(page).to_not have_content("I think your cat likes me #cat")
+      expect(page).to_not have_content('I think your cat likes me #cat')
     end
 
     scenario 'should have tweet about #cat' do
       visit root_path
-      page.find(:xpath, "//a[@id='show_#cat']").click 
+      page.find(:xpath, "//a[@id='show_#cat']").click
       within(:xpath, "//div[@id='tweet_id_3']") do
         expect(page).to have_content("I think your cat doesn't like me #cat")
       end
@@ -86,3 +87,4 @@ RSpec.feature 'Hashtags', type: :feature do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

@@ -13,5 +13,4 @@ namespace :tweet_stream do
       @query = QueryMatchUtil.stream_queries
     end
   end
-
 end
