@@ -11,12 +11,14 @@ To check the application working access: [Tweet Hunter](https://tweet-hunter.her
 
 ## Steps to run this project locally:
 
-1. Check if you have installed Ruby 2.6.0, Bundler 2 (or greater), redis and postgres (check if these last two are running).
+1. [Dependencies] Check if you have installed Ruby 2.6.0, Bundler 2 (or greater), redis and postgres (check if these last two are running).
 
    You may want to install Ruby 2.6.0 using rvm!
    
-   If you installed Ruby 2.6.0 using rvm, you may need to update Bundler with `gem update --bundler`
+   * If you installed Ruby 2.6.0 using rvm, you may need to update Bundler with `gem update --bundler`
    
+   * Install yarn from npm: `sudo npm install --global yarn`
+
 2. Clone and `cd` this project.
 
    Always run the commands from the project folder!
