@@ -23,9 +23,9 @@ jobs:
     steps: 
       - checkout
 
-      - run: # Update bundler
-          name: Bundle Install
-          command: gem install bundler && bundle update --bundler
+      # - run: # Update bundler
+      #     name: Bundle Install
+      #     command: gem install bundler && bundle update --bundler
 
       - run: 
           name: Which bundler?
