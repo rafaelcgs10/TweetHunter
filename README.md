@@ -2,7 +2,6 @@ Tweet Hunter
 ===========
 
 [![TweetHunter](https://img.shields.io/circleci/build/gh/rafaelcgs10/TweetHunter?style=for-the-badge)](https://circleci.com/gh/rafaelcgs10/TweetHunter)
-
 [![Codecov](https://img.shields.io/codecov/c/gh/rafaelcgs10/TweetHunter?style=for-the-badge)](https://codecov.io/gh/rafaelcgs10/TweetHunter)
 
 
