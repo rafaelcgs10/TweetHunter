@@ -13,7 +13,7 @@ To check the application working access: [Tweet Hunter](https://tweet-hunter.her
 
 1. Check if you have installed Ruby 2.6.0, Bundler 2 (or greater), redis and postgres (check if these last two are running).
 
-   You may want to install Ruby 2.6 using rvm!
+   You may want to install Ruby 2.6.0 using rvm!
    
 2. Clone and `cd` this project.
 
