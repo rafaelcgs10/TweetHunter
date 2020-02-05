@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-require 'codecov'
 require 'codacy-coverage'
 require 'vcr'
 
