@@ -80,6 +80,3 @@ gem 'acts_as_paranoid'
 gem 'treetop', '~> 1.6', '>= 1.6.8'
 
 gem 'will_paginate', '~> 3.1.0'
-
-gem 'sorbet', :group => :development
-gem 'sorbet-runtime'
