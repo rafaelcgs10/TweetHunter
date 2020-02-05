@@ -27,9 +27,9 @@ jobs:
       #     name: Bundle Install
       #     command: gem install bundler && bundle update --bundler
 
-      - run: 
-          name: Which bundler?
-          command: bundle -v
+      # - run: 
+      #     name: Which bundler?
+      #     command: bundle -v
 
       # Restore bundle cache
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
@@ -40,7 +40,7 @@ jobs:
 
       - run: # Install Ruby dependencies
           name: Bundle Install
-          command: bundle check --path vendor/bundle || bundle install --deployment
+          command: gem install bundler:2.1.4 && bundle check --path vendor/bundle || bundle install --deployment
 
       # Store bundle cache for Ruby dependencies
       - save_cache:
