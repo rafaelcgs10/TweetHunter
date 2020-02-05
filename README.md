@@ -13,7 +13,7 @@ To check the application working access: [Tweet Hunter](https://tweet-hunter.her
 
 1. [Dependencies] Check if you have installed Ruby 2.6.0, Bundler 2 (or greater), Node 8.16.0 (or greater), redis and postgres (check if these last two are running).
 
-   You may want to install Ruby 2.6.0 using rvm!
+   You may want to install Ruby 2.6.0 using rvm as well Node 8.16.0 with nvm!
    
    * If you installed Ruby 2.6.0 using rvm, you may need to update Bundler with `gem update --bundler`
    
