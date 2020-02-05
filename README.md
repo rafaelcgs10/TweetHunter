@@ -1,24 +1,33 @@
-# README
+# Tweet Hunter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application was made using Ruby on Rails 6 with a lot of nice gems!
 
-Things you may want to cover:
+To check the application working access: tweet-hunter.herokuapp.com
 
-* Ruby version
+A brief list of tools used:
 
-* System dependencies
+* Ruby 2.7
 
-* Configuration
+* Rails 6
 
-* Database creation
+* CircleCI
 
-* Database initialization
+* Codecov
 
-* How to run the test suite
+* Resque and Resque-scheduler (gems)
 
-* Services (job queues, cache servers, search engines, etc.)
+* RSpec 3.9
 
-* Deployment instructions
+* Solargraph (Language Server)
 
-* ...
+* Rubocop
+
+* ActsAsParanoid (gem)
+
+* Twitter API (gem)
+
+* VCR (gem)
+
+* Bootstrap
+
+* Heroku
