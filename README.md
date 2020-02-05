@@ -21,7 +21,8 @@ To check the application working access: [Tweet Hunter](https://tweet-hunter.her
 
    Always run the commands from the project folder!
 
-3. Run `bundle install`.
+3. * You need to install a system package called  `libpq`something. In Arch Linux is called `libpqxx`, in Ubuntu you may also install `libpqxx-dev`.
+   * Run `bundle install`.
 
 4. Run `figaro install`.
 
