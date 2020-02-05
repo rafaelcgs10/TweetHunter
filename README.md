@@ -11,7 +11,7 @@ To check the application working access: [Tweet Hunter](https://tweet-hunter.her
 
 ## Steps to run this project locally:
 
-1. Check if you have installed Ruby 2.6, Rails 6, redis and postgres (check if these last two are running).
+1. Check if you have installed Ruby 2.6, Bundler 2 (or greater), redis and postgres (check if these last two are running).
 
    You may want to install Ruby 2.6 using rvm!
    
@@ -47,7 +47,7 @@ access_secret: XXXXXXXX
 
 10. Run tests with `rspec`.
 
-## A brief list of tools used:
+## A brief list of the tools used:
 
 * Ruby 2.6
 
