@@ -8,7 +8,7 @@ class QueryMatchUtil
     if !string.nil? && !string.empty?
       parser = QueryGrammarParser.new
       result = parser.parse(string)
-      result
+      !result.nil?
     else
       false
     end
