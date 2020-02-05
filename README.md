@@ -5,27 +5,49 @@ Tweet Hunter
 [![Codecov](https://img.shields.io/codecov/c/gh/rafaelcgs10/TweetHunter?style=for-the-badge)](https://codecov.io/gh/rafaelcgs10/TweetHunter)
 ![Website](https://img.shields.io/website?label=Go%20to%20Tweet-Hunter&style=for-the-badge&up_message=online&url=https%3A%2F%2Ftweet-hunter.herokuapp.com%2F)
 
-
 This application was made using Ruby on Rails 6 with a lot of nice gems!
 
-To check the application working access: tweet-hunter.herokuapp.com
+To check the application working access: [Tweet Hunter](https://tweet-hunter.herokuapp.com)
 
-Steps to run this project locally:
+## Steps to run this project locally:
 
-1. Check with you have installed Ruby 2.6, Rails 6, redis and postgres (check if these last two are running).
+1. Check if you have installed Ruby 2.6, Rails 6, redis and postgres (check if these last two are running).
+
    You may want to install Ruby 2.6 using rvm!
    
-2. Clone and cd this project.
+2. Clone and `cd` this project.
 
-3. Run bundle install
+   Always run the commands from the project folder!
 
-4. Create a databse in postres called myDB
-   make sure that the user is called rafael and has the passowrd 123456.
-   You may also customize this in config/database.yml
+3. Run `bundle install`.
 
-5. Run rake db:migrate from the project folder
+4. Run `figaro install`.
 
-A brief list of tools used:
+5. Insert your Twitter API credentials in `config/application.yml`, like so:
+
+```
+consumer_key: XXXXXX
+consumer_secret: XXXXXXX
+access_token: XXXXXXXX
+access_secret: XXXXXXXX
+```
+
+6. Create a database in postgres called myDB.
+
+   Make sure that the user is called `rafael` and that it has the password `123456`.
+   You may also customize this in `config/database.yml`
+
+7. Run `rake db:migrate` from the project folder.
+
+8. Run `rake environment tweet_stream:start` in another terminal.
+
+8. Run `INTERVAL=0.1 QUEUE=* COUNT=2 rake environment resque:work` in another terminal.
+
+9. Run `rails s` and check http://localhost:3000/ .
+
+10. Run tests with `rspec`.
+
+## A brief list of tools used:
 
 * Ruby 2.6
 
@@ -33,11 +55,11 @@ A brief list of tools used:
 
 * CircleCI
 
-* Codecov
+* Codacy
 
 * Resque and Resque-scheduler (gems)
 
-* RSpec 3.9
+* RSpec
 
 * Solargraph (Language Server)
 
