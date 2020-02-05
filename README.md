@@ -1,7 +1,9 @@
 Tweet Hunter
 ===========
 
-[![TweetHunter](https://circleci.com/gh/rafaelcgs10/TweetHunter.svg?style=svg)](https://circleci.com/gh/rafaelcgs10/TweetHunter)
+[![TweetHunter](https://img.shields.io/circleci/build/gh/rafaelcgs10/TweetHunter?style=for-the-badge)](https://circleci.com/gh/rafaelcgs10/TweetHunter)
+![Codecov](https://img.shields.io/codecov/c/gh/rafaelcgs10/TweetHunter?style=for-the-badge)
+
 
 This application was made using Ruby on Rails 6 with a lot of nice gems!
 
