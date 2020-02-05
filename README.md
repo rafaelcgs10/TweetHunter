@@ -75,3 +75,7 @@ access_secret: XXXXXXXX
 * Bootstrap
 
 * Heroku
+
+## Known issues:
+
+* The Action Cable, which updates tweets, continues to send tweets even if the user is in another page besides the first.
