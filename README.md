@@ -15,6 +15,8 @@ To check the application working access: [Tweet Hunter](https://tweet-hunter.her
 
    You may want to install Ruby 2.6.0 using rvm!
    
+   If you installed Ruby 2.6.0 using rvm, you may need to update Bundler you `gem update --bundler`
+   
 2. Clone and `cd` this project.
 
    Always run the commands from the project folder!
