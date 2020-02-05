@@ -57,13 +57,15 @@ access_secret: XXXXXXXX
 
 * Codacy
 
-* Resque and Resque-scheduler (gems)
-
 * RSpec
+
+* Rubocop
+
+* Resque and Resque-scheduler (gems)
 
 * Solargraph (Language Server)
 
-* Rubocop
+* TreeTop (gem)
 
 * ActsAsParanoid (gem)
 
