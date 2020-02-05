@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.6.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
@@ -34,10 +34,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
-  gem 'rspec_junit_formatter'
-  gem 'selenium-webdriver'
-  gem 'vcr'
-  gem 'webmock'
 end
 
 group :development do
@@ -56,7 +52,12 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'codacy-coverage'
+  gem 'selenium-webdriver'
+  gem 'simplecov', '~> 0.12.0'
+  gem 'vcr'
   gem 'webdrivers'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -73,12 +74,8 @@ gem 'solargraph', group: :development
 gem 'resque'
 gem 'resque-scheduler'
 
-gem 'simplecov', require: false, group: :test
-
 gem 'acts_as_paranoid'
 
 gem 'treetop', '~> 1.6', '>= 1.6.8'
 
 gem 'will_paginate', '~> 3.1.0'
-
-gem 'codacy-coverage', :require => false
