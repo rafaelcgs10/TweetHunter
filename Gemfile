@@ -75,8 +75,6 @@ gem 'resque-scheduler'
 
 gem 'simplecov', require: false, group: :test
 
-gem 'codecov', require: false, group: :test
-
 gem 'acts_as_paranoid'
 
 gem 'treetop', '~> 1.6', '>= 1.6.8'
