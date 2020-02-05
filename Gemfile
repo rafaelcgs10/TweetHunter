@@ -53,6 +53,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'codacy-coverage'
+  gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
   gem 'simplecov', '~> 0.12.0'
   gem 'vcr'
