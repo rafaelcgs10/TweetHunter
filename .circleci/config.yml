@@ -22,9 +22,6 @@ jobs:
       - image: redis:6.0-rc1-alpine3.11
     steps: 
       - checkout
-      - run: 
-          name: Which bundler?
-          command: bundle -v
 
       # Restore bundle cache
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
