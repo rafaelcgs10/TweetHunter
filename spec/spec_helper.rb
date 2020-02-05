@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-require 'codacy-coverage'
 require 'vcr'
-
-Codacy::Reporter.start
 
 SimpleCov.start do
   add_filter 'config/'
@@ -20,6 +17,9 @@ VCR.configure do |config|
   config.allow_http_connections_when_no_cassette = false
   config.ignore_hosts 'api.codacy.com'
 end
+
+require 'codacy-coverage'
+Codacy::Reporter.start
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::HTMLFormatter,
