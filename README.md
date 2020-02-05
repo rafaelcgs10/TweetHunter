@@ -39,15 +39,17 @@ access_secret: XXXXXXXX
 
    You may customize who is the user in `config/database.yml`, but you may also skip this!
 
-7. Run `rake db:migrate` from the project folder.
+7. Run `yarn install --check-files`.
 
-8. Run `rake environment tweet_stream:start` in another terminal.
+8. Run `rake db:migrate` from the project folder.
 
-8. Run `INTERVAL=0.1 QUEUE=* COUNT=2 rake environment resque:work` in another terminal.
+9. Run `rake environment tweet_stream:start` in another terminal.
 
-9. Run `rails s` and check http://localhost:3000/ .
+10. Run `INTERVAL=0.1 QUEUE=* COUNT=2 rake environment resque:work` in another terminal.
 
-10. Run tests with `rspec`.
+11. Run `rails s` and check http://localhost:3000/ .
+
+12. Run tests with `rspec`.
 
 ## A brief list of the tools used:
 
