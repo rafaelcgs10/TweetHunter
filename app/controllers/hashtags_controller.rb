@@ -9,7 +9,7 @@ class HashtagsController < ApplicationController
 
   def show
     @hashtag = Hashtag.find(params[:id])
-    @tweets = Tweet.where(hashtag: @hashtag.hashtag).order(date: :desc)
+    @tweets = Tweet.where(hashtag: @hashtag.hashtag).order(date: :desc).paginate(page: params[:page], per_page: 20)
   end
 
   def destroy

@@ -3,13 +3,20 @@
   data-channel-subscribe="hashtag" 
   data-hashtag-id="<%= @hashtag.id %>">
 
-  <div class="row">
-    <p>
-      <%= link_to 'Back', hashtags_path %>
-    </p>
-  </div>
+  <div class="container">
+    <div class="d-flex">
+      <div class="p-2">
+	<p>
+	  <%= link_to 'Back to hashtags', hashtags_path %>
+	</p>
+      </div>
+      <div class="ml-auto p-2">
+	<div class="digg_pagination">
+	  <%= will_paginate @tweets, :container => false %>
+	</div>
+      </div>
+    </div>
 
-  <div class="row">
     <p>
       <strong>Hashtag:</strong>
       <%= @hashtag.hashtag %>
@@ -26,10 +33,18 @@
 
   </div>
 
-  <div class="row">
-    <p>
-      <%= link_to 'Back', hashtags_path %>
-    </p>
+  <div class="d-flex">
+    <div class="p-2">
+      <p>
+	<%= link_to 'Back to hashtags', hashtags_path %>
+      </p>
+    </div>
+    <div class="ml-auto p-2">
+      <div class="digg_pagination">
+	<%= will_paginate @tweets, :container => false %>
+      </div>
+    </div>
   </div>
+
 
 </div>
