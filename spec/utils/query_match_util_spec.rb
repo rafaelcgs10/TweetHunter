@@ -17,8 +17,7 @@ RSpec.describe QueryMatchUtil do
     end
 
     it('should fail because is nil') do
-      result = QueryMatchUtil.valid? nil
-      expect(result).to eq(false)
+      expect { QueryMatchUtil.valid?(nil) }.to raise_error(TypeError)
     end
 
     it('should be successful because is a hashtag') do

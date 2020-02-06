@@ -19,7 +19,16 @@ class QueryMatchUtil
     end
   end
 
-    # Why? To generate queries from hashtags to use in the Twitter Stream
+  sig { params(query: T.nilable(String), string: String).returns(T::Boolean) }
+  def self.match?(query, string)
+    Treetop.load 'app/utils/grammars/query'
+    parser = QueryGrammarParser.new
+    parsed = parser.parse(query)
+    regex = Regexp.new(parsed.get_regex, Regexp::IGNORECASE)
+    regex.match?(string)
+  end
+
+  # Why? To generate queries from hashtags to use in the Twitter Stream
   sig { returns(String) }
   def self.stream_queries
     hashtags = Hashtag.all
