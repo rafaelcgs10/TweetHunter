@@ -56703,6 +56703,11 @@ module Puma
   def self.windows?(); end
 end
 
+class QueryMatchUtil
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 module RDoc
   ATTR_MODIFIERS = ::T.let(nil, ::T.untyped)
   CLASS_MODIFIERS = ::T.let(nil, ::T.untyped)
@@ -91785,6 +91790,11 @@ end
 
 class StopIteration
   def result(); end
+end
+
+class StoreTweetJob
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
 end
 
 class String
