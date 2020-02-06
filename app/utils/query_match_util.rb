@@ -10,13 +10,9 @@ class QueryMatchUtil
   sig { params(string: String).returns(T::Boolean) }
   def self.valid?(string)
     Treetop.load 'app/utils/grammars/query'
-    if !string.nil? && !string.empty?
-      parser = QueryGrammarParser.new
-      result = parser.parse(string)
-      !result.nil?
-    else
-      false
-    end
+    parser = QueryGrammarParser.new
+    result = parser.parse(string)
+    !result.nil?
   end
 
   sig { params(query: String, string: String).returns(T::Boolean) }
