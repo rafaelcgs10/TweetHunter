@@ -74,9 +74,9 @@ jobs:
           name: Downloading Type Definitiosn for gems
           command: bundle exec srb rbi sorbet-typed
 
-      # - run:
-      #     name: Update Sorbet Hidden Definitions
-      #     command: bundle exec srb rbi hidden-definitions
+      - run:
+          name: Update Sorbet Hidden Definitions
+          command: bundle exec srb rbi hidden-definitions
 
       # - run:
       #     name: Upgrade Sorbet Fil\'s Type Check Level 
