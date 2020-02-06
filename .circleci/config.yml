@@ -30,12 +30,12 @@ jobs:
 
       - run:
           name: Bundle Install
-          command: gem install bundler:2.1.2 && bundle check --path=/tmp/bundle || bundle install  --jobs=4 --retry=3
+          command: gem install bundler:2.1.2 && bundle check --path=cache-circleci/bundle || bundle install  --jobs=4 --retry=3
 
       - save_cache:
           key: rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
           paths:
-            - /tmp/bundle
+            - cache-circleci/bundle
 
       - run:
           name: Create database
@@ -88,7 +88,7 @@ jobs:
   
       - run:
           name: Bundle Install
-          command: gem install bundler:2.1.2 && bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
+          command: gem install bundler:2.1.2 && bundle check --path=cache-circleci/bundle || bundle install --path=cache-circleci/bundle --jobs=4 --retry=3
       - run:
           name: Lint with rubocop
           command: bundle exec rubocop
@@ -106,7 +106,7 @@ jobs:
   
       - run:
           name: Bundle Install
-          command: gem install bundler:2.1.2 && bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
+          command: gem install bundler:2.1.2 && bundle check --path=cache-circleci/bundle || bundle install --path=cache-circleci/bundle --jobs=4 --retry=3
       - save_cache:
           key: sorbet-{{ checksum "Gemfile" }}
           paths:
