@@ -101,8 +101,8 @@ jobs:
       
       - restore_cache:
           keys:
-            - rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
-            - rails-demo-bundle-v1-
+            - sorbet-{{ checksum "Gemfile.lock" }}
+            - sorbet-
   
       - run:
           name: Bundle Install
