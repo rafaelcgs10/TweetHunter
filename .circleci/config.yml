@@ -8,7 +8,7 @@ orbs:
   ruby: circleci/ruby@0.1.2 # Ruby orb registry: https://circleci.com/orbs/registry/orb/circleci/ruby
 
 jobs: 
-  build: 
+  rspec: 
     docker: 
       - image: circleci/ruby:2.6.0-node-browsers
         environment:
@@ -23,8 +23,6 @@ jobs:
     steps: 
       - checkout
 
-      # Restore bundle cache
-      # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
           keys:
             - rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
@@ -34,7 +32,6 @@ jobs:
           name: Bundle Install
           command: gem install bundler:2.1.2 && bundle check --path vendor/bundle || bundle install --deployment
 
-      # Store bundle cache for Ruby dependencies
       - save_cache:
           key: rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
           paths:
@@ -43,10 +40,6 @@ jobs:
       - run:
           name: Create database
           command: bundle exec rake db:create
-
-      # - run:
-      #     name: Database setup
-      #     command: bin/rails db:schema:load --trace
 
       - restore_cache:
           keys:
@@ -83,8 +76,7 @@ jobs:
           name: Lint with rubocop
           command: bundle exec rubocop
 
-      # Save test results for timing analysis
-      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+      - store_test_results:
           path: test_results
 
   sorbet:
@@ -119,16 +111,22 @@ workflows:
 
   build-deploy:
     jobs:
-      - build:
+      - rspec:
           filters:
             branches:
               only:
                 - dev
                 - master
-      - sorbet
+      - sorbet:
+          filters:
+            branches:
+              only:
+                - dev
+                - master
       - deploy:
           requires:
-            - build
+            - rspec
+            - sorbet
           filters:
             branches:
               only:
