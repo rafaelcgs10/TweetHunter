@@ -1,6 +1,8 @@
+# typed: false
 # frozen_string_literal: true
 
 namespace :tweet_stream do
+  extend T::Sig
   task start: :environment do
     stream_hashtags
   end

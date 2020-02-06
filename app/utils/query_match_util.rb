@@ -2,8 +2,12 @@
 # frozen_string_literal: true
 
 require 'treetop'
+require 'sorbet-runtime'
 
 class QueryMatchUtil
+  extend T::Sig
+
+  sig { params(string: String).returns(T::Boolean) }
   def self.valid?(string)
     Treetop.load 'app/utils/grammars/query'
     if !string.nil? && !string.empty?
@@ -15,6 +19,7 @@ class QueryMatchUtil
     end
   end
 
+  sig { params(query: String, string: String).returns(T::Boolean) }
   def self.match?(query, string)
     Treetop.load 'app/utils/grammars/query'
     parser = QueryGrammarParser.new
@@ -24,6 +29,7 @@ class QueryMatchUtil
   end
 
   # Why? To generate queries from hashtags to use in the Twitter Stream
+  sig { returns(String) }
   def self.stream_queries
     hashtags = Hashtag.all
     queries = hashtags.map do |hashtag|

@@ -20,8 +20,8 @@ class HashtagsController < ApplicationController
     @hashtag = Hashtag.find(params[:id])
     @tweets = Tweet.where(hashtag: @hashtag.hashtag)
     @hashtag.destroy
+    Resque.enqueue(DeleteTweetsJob, @hashtag.hashtag)
     redirect_to hashtags_path
-    DeleteTweetsJob.perform(@tweets)
   end
 
   def create

@@ -8,7 +8,7 @@ orbs:
   ruby: circleci/ruby@0.1.2 # Ruby orb registry: https://circleci.com/orbs/registry/orb/circleci/ruby
 
 jobs: 
-  build: 
+  rspec: 
     docker: 
       - image: circleci/ruby:2.6.0-node-browsers
         environment:
@@ -23,30 +23,23 @@ jobs:
     steps: 
       - checkout
 
-      # Restore bundle cache
-      # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
           keys:
             - rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
             - rails-demo-bundle-v1-
 
-      - run: # Install Ruby dependencies
+      - run:
           name: Bundle Install
-          command: gem install bundler:2.1.2 && bundle check --path vendor/bundle || bundle install --deployment
+          command: gem install bundler:2.1.2 && bundle check --path=vendor/bundle || bundle install  --jobs=4 --retry=3
 
-      # Store bundle cache for Ruby dependencies
       - save_cache:
           key: rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
           paths:
-            - vendor/bundle      
+            - vendor/bundle
 
       - run:
           name: Create database
           command: bundle exec rake db:create
-
-      # - run:
-      #     name: Database setup
-      #     command: bin/rails db:schema:load --trace
 
       - restore_cache:
           keys:
@@ -79,13 +72,49 @@ jobs:
                               --format progress \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
+      - store_test_results:
+          path: test_results
+
+  rubocop:
+    docker:
+      - image: circleci/ruby:2.6.0
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v1-
+  
+      - run:
+          name: Bundle Install
+          command: gem install bundler:2.1.2 && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       - run:
           name: Lint with rubocop
           command: bundle exec rubocop
 
-      # Save test results for timing analysis
-      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: test_results
+  sorbet:
+    docker:
+      - image: circleci/ruby:2.6.0
+    steps:
+      - checkout
+      
+      - restore_cache:
+          keys:
+            - sorbet-{{ checksum "Gemfile.lock" }}
+            - sorbet-
+  
+      - run:
+          name: Bundle Install
+          command: gem install bundler:2.1.2 && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      - save_cache:
+          key: sorbet-{{ checksum "Gemfile" }}
+          paths:
+            - sorbet
+
+      - run:
+          name: Type Check with Sorbet
+          command: bundle exec srb tc --ignore=/vendor
 
   deploy:
     docker: 
@@ -102,7 +131,19 @@ workflows:
 
   build-deploy:
     jobs:
-      - build:
+      - rubocop:
+          filters:
+            branches:
+              only:
+                - dev
+                - master
+      - rspec:
+          filters:
+            branches:
+              only:
+                - dev
+                - master
+      - sorbet:
           filters:
             branches:
               only:
@@ -110,7 +151,9 @@ workflows:
                 - master
       - deploy:
           requires:
-            - build
+            - rubocop
+            - rspec
+            - sorbet
           filters:
             branches:
               only:

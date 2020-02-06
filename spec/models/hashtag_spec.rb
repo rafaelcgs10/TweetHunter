@@ -17,7 +17,7 @@ RSpec.describe Hashtag, type: :model do
   context 'validation tests' do
     it 'should not save without setting the hashtag' do
       hashtag = Hashtag.new
-      expect(hashtag.save).to eq(false)
+      expect { hashtag.save }.to raise_error(TypeError)
     end
     it 'should reject abc as a hastag' do
       hashtag = Hashtag.new
