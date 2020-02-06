@@ -115,8 +115,8 @@ jobs:
             - v1-gem-cache-{{ arch }}-{{ .Branch }}-
             - v1-gem-cache-{{ arch }}-
 
-      - run: gem install "bundler:${BUNDLER_VERSION}"
-      - run: bundle install --path "${BUNDLE_PATH}"
+      - run: gem update --bundler
+      - run: bundle install
       - run:
           name: Deploy Master to Heroku
           command: |
