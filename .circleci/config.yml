@@ -114,7 +114,7 @@ jobs:
 
       - run:
           name: Type Check with Sorbet
-          command: bundle exec srb tc
+          command: bundle exec srb tc --ignore=/vendor
 
   deploy:
     docker: 
