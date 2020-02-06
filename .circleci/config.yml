@@ -72,12 +72,20 @@ jobs:
                               --format progress \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
+      - store_test_results:
+          path: test_results
+
+  rubocop:
+    docker:
+      - image: circleci/ruby:2.6.3
+    steps:
+      - checkout
+      - restore_cache:
+          key: rails-demo-bundle-v1-{{ checksum "Gemfile" }}
+      - run: bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
       - run:
           name: Lint with rubocop
           command: bundle exec rubocop
-
-      - store_test_results:
-          path: test_results
 
   sorbet:
     docker:
@@ -117,6 +125,12 @@ workflows:
 
   build-deploy:
     jobs:
+      - rubocop:
+          filters:
+            branches:
+              only:
+                - dev
+                - master
       - rspec:
           filters:
             branches:
