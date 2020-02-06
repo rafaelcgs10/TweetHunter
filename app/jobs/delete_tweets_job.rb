@@ -5,7 +5,9 @@
 class DeleteTweetsJob
   @queue = :delete
 
-  def self.perform(tweets)
+  def self.perform(hashtag)
+    puts 'hard deleting'
+    tweets = Tweet.where(hashtag: hashtag)
     tweets.delete_all!
   end
 end
