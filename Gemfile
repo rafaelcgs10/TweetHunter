@@ -84,4 +84,3 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'sorbet', :group => :development
 gem 'sorbet-runtime'
 gem 'sorbet-rails'
-gem 'rspec-sorbet'
