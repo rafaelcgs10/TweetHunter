@@ -19,16 +19,31 @@ RSpec.describe Hashtag, type: :model do
       hashtag = Hashtag.new
       expect { hashtag.save }.to raise_error(TypeError)
     end
+
+    it 'should not save hashtag empty string' do
+      hashtag = Hashtag.new
+      hashtag.hashtag = ''
+      expect(hashtag.save).to eq(false)
+    end
+
+    it 'should not save hashtag blank string' do
+      hashtag = Hashtag.new
+      hashtag.hashtag = '  '
+      expect(hashtag.save).to eq(false)
+    end
+
     it 'should reject abc as a hastag' do
       hashtag = Hashtag.new
       hashtag.hashtag = 'abc'
-      expect(hashtag.valid?).to eq(false)
+      expect(hashtag.save).to eq(false)
     end
+
     it 'should accept #pokemon as a hashtag' do
       hashtag = Hashtag.new
       hashtag.hashtag = '#pokemon'
       expect(hashtag.valid?).to eq(true)
     end
+
     it 'should not save the same hashtag twice' do
       hashtag1 = Hashtag.new
       hashtag1.hashtag = '#pokemon'
