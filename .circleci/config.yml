@@ -77,7 +77,7 @@ jobs:
 
   rubocop:
     docker:
-      - image: circleci/ruby:2.6.3
+      - image: circleci/ruby:2.6.0
     steps:
       - checkout
 
