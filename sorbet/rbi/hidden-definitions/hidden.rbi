@@ -35223,6 +35223,11 @@ class Delegator
   def self.public_api(); end
 end
 
+class DeleteTweetsJob
+  extend ::T::Private::Methods::MethodHooks
+  extend ::T::Private::Methods::SingletonMethodHooks
+end
+
 class DidYouMean::ClassNameChecker
   def class_name(); end
 
@@ -68767,6 +68772,25 @@ module RSpec::Rails
 end
 
 RSpec::SharedContext = RSpec::Core::SharedContext
+
+module RSpec::Sorbet
+end
+
+module RSpec::Sorbet::Doubles
+  def allow_doubles!(); end
+
+  def allow_instance_doubles!(); end
+  INLINE_DOUBLE_REGEX = ::T.let(nil, ::T.untyped)
+  TYPED_ARRAY_MESSAGE = ::T.let(nil, ::T.untyped)
+  VERIFYING_DOUBLE_OR_DOUBLE = ::T.let(nil, ::T.untyped)
+end
+
+module RSpec::Sorbet::Doubles
+end
+
+module RSpec::Sorbet
+  extend ::RSpec::Sorbet::Doubles
+end
 
 module RSpec::Support
   DEFAULT_FAILURE_NOTIFIER = ::T.let(nil, ::T.untyped)
