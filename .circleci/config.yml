@@ -109,6 +109,14 @@ jobs:
       - image: buildpack-deps:trusty
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-
+            - v1-gem-cache-{{ arch }}-
+
+      - run: gem install "bundler:${BUNDLER_VERSION}"
+      - run: bundle install --path "${BUNDLE_PATH}"
       - run:
           name: Deploy Master to Heroku
           command: |
