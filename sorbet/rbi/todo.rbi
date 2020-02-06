@@ -4,7 +4,6 @@
 # typed: strong
 module ActiveRecord::CollectionCacheKey; end
 module ActiveRecord::Delegation::DelegateCache; end
-module QueryMatchUtil::Bool; end
 module QueryMatchUtil::QueryGrammarParser; end
 module T::InterfaceWrapper::Helpers; end
 module T::Private::Abstract::Hooks; end
