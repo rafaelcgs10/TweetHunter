@@ -76,7 +76,7 @@ jobs:
 
       - run:
           name: Upgrade Sorbet Fil\'s Type Check Level 
-          command: bundle exec srb rbi hidden-definitions
+          command: bundle exec srb rbi suggest-typed
 
       - run:
           name: Run Type Checker Sorbet
