@@ -3,10 +3,11 @@
 
 # Why? To clean up the data base from old tweets
 class DeleteTweetsJob
+  extend T::Sig
   @queue = :delete
 
+  sig { params(hashtag: String).returns(T::Boolean) }
   def self.perform(hashtag)
-    puts 'hard deleting'
     tweets = Tweet.where(hashtag: hashtag)
     tweets.delete_all!
   end
