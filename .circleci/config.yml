@@ -71,6 +71,10 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run:
+          name: Run Type Checker Sorbet
+          command: bundle exec srb tc
+
+      - run:
           name: Run rspec
           command: |
             bundle exec rspec --profile 10 \
