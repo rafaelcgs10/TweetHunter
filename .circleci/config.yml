@@ -84,20 +84,19 @@ jobs:
       - image: circleci/ruby:2.6.0
     steps:
       - checkout
-
+      
       - restore_cache:
-          keys:
-            - sorbet-v2-{{ checksum "Gemfile.lock" }}
-            - sorbet-
-
+          key: rails-demo-bundle-v1-{{ checksum "Gemfile" }}
+      - restore_cache:
+          key: sorbet-{{ checksum "Gemfile" }}
+  
       - run:
           name: Bundle Install
-          command: gem install bundler:2.1.2 && bundle check --path vendor/bundle || bundle install --deployment
-
+          command: gem install bundler:2.1.2 && bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
       - save_cache:
-          key: sorbet-v2-{{ checksum "Gemfile.lock" }}
+          key: sorbet-{{ checksum "Gemfile" }}
           paths:
-            - vendor/bundle      
+            - sorbet
 
       - run:
           name: Type Check with Sorbet
