@@ -21,9 +21,8 @@ class Hashtag < ApplicationRecord
   end
 
   def valid_query
-    # rubocop:enable Style/GuardClause
-    unless QueryMatchUtil.valid? hashtag
-      errors.add(:hashtag, 'is not a well constructed query')
-    end
+    return if QueryMatchUtil.valid? hashtag
+
+    errors.add(:hashtag, 'is not a well constructed query')
   end
 end

@@ -19,7 +19,7 @@ class QueryMatchUtil
     end
   end
 
-  sig { params(query: T.nilable(String), string: String).returns(T::Boolean) }
+  sig { params(query: String, string: String).returns(T::Boolean) }
   def self.match?(query, string)
     Treetop.load 'app/utils/grammars/query'
     parser = QueryGrammarParser.new
