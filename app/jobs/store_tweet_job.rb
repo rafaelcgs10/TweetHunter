@@ -1,10 +1,12 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 # Why? To implement Twitter search job
 class StoreTweetJob
+  extend T::Sig
   @queue = :store
 
+  sig {params(status: String, content: String).returns(String)}
   def self.perform(status, content)
     hashtags = Hashtag.all
     hashtags.each do |hashtag|
