@@ -96,6 +96,7 @@ jobs:
           key: bundle-v2-{{ checksum "Gemfile" }}
       - restore_cache:
           key: sorbet-{{ checksum "Gemfile" }}
+      - run: gem update --bundler
       - run: bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
       - run: SRB_YES=1 bundle exec srb rbi update > /dev/null
       - save_cache:
@@ -109,14 +110,6 @@ jobs:
       - image: buildpack-deps:trusty
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-            - v1-gem-cache-{{ arch }}-{{ .Branch }}-
-            - v1-gem-cache-{{ arch }}-
-
-      - run: gem update --bundler
-      - run: bundle install
       - run:
           name: Deploy Master to Heroku
           command: |
