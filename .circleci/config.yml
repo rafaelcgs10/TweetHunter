@@ -71,22 +71,6 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run:
-          name: Downloading Type Definitiosn for gems
-          command: bundle exec srb rbi sorbet-typed
-
-      - run:
-          name: Update Sorbet Hidden Definitions
-          command: bundle exec srb rbi hidden-definitions
-
-      - run:
-          name: Upgrade Sorbet Fil\'s Type Check Level 
-          command: bundle exec srb rbi suggest-typed
-
-      - run:
-          name: Run Type Checker Sorbet
-          command: bundle exec srb tc
-
-      - run:
           name: Run rspec
           command: |
             bundle exec rspec --profile 10 \
@@ -102,6 +86,23 @@ jobs:
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test_results
+
+  sorbet:
+    docker:
+      - image: circleci/ruby:2.6.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: bundle-v2-{{ checksum "Gemfile" }}
+      - restore_cache:
+          key: sorbet-{{ checksum "Gemfile" }}
+      - run: bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
+      - run: SRB_YES=1 bundle exec srb rbi update > /dev/null
+      - save_cache:
+          key: sorbet-{{ checksum "Gemfile" }}
+          paths:
+            - sorbet
+      - run: bundle exec srb tc
 
   deploy:
     docker: 
@@ -124,6 +125,7 @@ workflows:
               only:
                 - dev
                 - master
+      - sorbet
       - deploy:
           requires:
             - build
