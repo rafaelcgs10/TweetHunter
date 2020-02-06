@@ -82,7 +82,9 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: rails-demo-bundle-v1-{{ checksum "Gemfile" }}
+          keys:
+            - rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v1-
   
       - run:
           name: Bundle Install
@@ -98,10 +100,14 @@ jobs:
       - checkout
       
       - restore_cache:
-          key: rails-demo-bundle-v1-{{ checksum "Gemfile" }}
+          keys:
+            - rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v1-
 
       - restore_cache:
-          key: sorbet-{{ checksum "Gemfile" }}
+          keys:
+            - sorbet-{{ checksum "Gemfile.lock" }}
+            - sorbet-
   
       - run:
           name: Bundle Install
