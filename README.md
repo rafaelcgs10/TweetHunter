@@ -13,18 +13,20 @@ To check the application working access: [Tweet Hunter](https://tweet-hunter.her
 
 1. [Dependencies] Check if you have installed Ruby 2.6.0, Bundler 2 (or greater), Node 8.16.0 (or greater), redis and postgres (check if these last two are running).
 
-   You may want to install Ruby 2.6.0 using rvm as well Node 8.16.0 with nvm!
-   
-   * If you installed Ruby 2.6.0 using rvm, you may need to update Bundler with `gem update --bundler`
-   
-   * Install yarn from npm: `sudo npm install --global yarn`
+You may want to install Ruby 2.6.0 using rvm as well Node 8.16.0 with nvm!
+
+* If you installed Ruby 2.6.0 using rvm, you may need to update Bundler with `gem update --bundler`
+
+* Install yarn from npm: `sudo npm install --global yarn`
+
+* You need to install a system package called  `libpq`something. In Arch Linux is called `libpqxx`, in Ubuntu you may also install `libpqxx-dev`.
+
 
 2. Clone and `cd` this project.
 
-   Always run the commands from the project folder!
+Always run the commands from the project folder!
 
-3. * You need to install a system package called  `libpq`something. In Arch Linux is called `libpqxx`, in Ubuntu you may also install `libpqxx-dev`.
-   * Run `bundle install`.
+3. Run `bundle install`.
 
 4. Run `figaro install`.
 
@@ -39,7 +41,7 @@ access_secret: XXXXXXXX
 
 6. Create a database in postgres called tweet_hunter.
 
-   You may customize who is the user in `config/database.yml`, but you may also skip this!
+You may customize who is the user in `config/database.yml`, but you may also skip this!
 
 7. Run `yarn install --check-files`.
 
