@@ -85,10 +85,6 @@ jobs:
     steps:
       - checkout
 
-      - run: gem install bundler
-
-      - run: bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
-
       - restore_cache:
           keys:
             - sorbet-v2-{{ checksum "Gemfile.lock" }}
