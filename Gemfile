@@ -84,3 +84,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'sorbet'
 gem 'sorbet-runtime'
 gem 'sorbet-rails'
+
+gem 'pry'
+gem 'pry-doc'
+gem 'pry-rails', :group => :development
+gem 'method_source'
