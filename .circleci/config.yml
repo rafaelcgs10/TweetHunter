@@ -71,6 +71,14 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run:
+          name: Update Sorbet Hidden Definitions
+          command: bundle exec srb rbi hidden-definitions
+
+      - run:
+          name: Upgrade Sorbet Fil\'s Type Check Level 
+          command: bundle exec srb rbi hidden-definitions
+
+      - run:
           name: Run Type Checker Sorbet
           command: bundle exec srb tc
 
