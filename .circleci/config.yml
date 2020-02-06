@@ -80,9 +80,13 @@ jobs:
       - image: circleci/ruby:2.6.3
     steps:
       - checkout
+
       - restore_cache:
           key: rails-demo-bundle-v1-{{ checksum "Gemfile" }}
-      - run: bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
+  
+      - run:
+          name: Bundle Install
+          command: gem install bundler:2.1.2 && bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
       - run:
           name: Lint with rubocop
           command: bundle exec rubocop
@@ -95,6 +99,7 @@ jobs:
       
       - restore_cache:
           key: rails-demo-bundle-v1-{{ checksum "Gemfile" }}
+
       - restore_cache:
           key: sorbet-{{ checksum "Gemfile" }}
   
@@ -145,6 +150,7 @@ workflows:
                 - master
       - deploy:
           requires:
+            - rubocop
             - rspec
             - sorbet
           filters:
