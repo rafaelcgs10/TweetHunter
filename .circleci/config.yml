@@ -85,20 +85,27 @@ jobs:
     steps:
       - checkout
 
+      - run: gem install bundler
+
+      - run: bundle check --path=/tmp/bundle || bundle install --path=/tmp/bundle --jobs=4 --retry=3
+
       - restore_cache:
           keys:
-            - sorbet-{{ checksum "Gemfile.lock" }}
+            - sorbet-v2-{{ checksum "Gemfile.lock" }}
+            - sorbet-
 
       - run:
           name: Bundle Install
           command: gem install bundler:2.1.2 && bundle check --path vendor/bundle || bundle install --deployment
 
       - save_cache:
-          key: sorbet-{{ checksum "Gemfile.lock" }}
+          key: sorbet-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle      
 
-      - run: bundle exec srb tc
+      - run:
+          name: Type Check with Sorbet
+          command: bundle exec srb tc
 
   deploy:
     docker: 
