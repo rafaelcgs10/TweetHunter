@@ -16,7 +16,7 @@ RSpec.describe QueryMatchUtil do
       expect(result).to eq(false)
     end
 
-    it('should fail because is not nil') do
+    it('should fail because is nil') do
       result = QueryMatchUtil.valid? nil
       expect(result).to eq(false)
     end

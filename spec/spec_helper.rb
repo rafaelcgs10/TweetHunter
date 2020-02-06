@@ -3,6 +3,7 @@
 
 require 'simplecov'
 require 'vcr'
+require 'rspec/sorbet'
 
 SimpleCov.start do
   add_filter 'config/'

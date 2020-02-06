@@ -6,7 +6,7 @@ class StoreTweetJob
   extend T::Sig
   @queue = :store
 
-  sig {params(status: String, content: String).returns(String)}
+  sig { params(status: Hash, content: String).void }
   def self.perform(status, content)
     hashtags = Hashtag.all
     hashtags.each do |hashtag|
@@ -14,6 +14,7 @@ class StoreTweetJob
     end
   end
 
+  sig { params(hashtag: Hashtag, status: Hash, content: String).void }
   def self.store(hashtag, status, content)
     return unless QueryMatchUtil.match?(hashtag.hashtag, content)
 
