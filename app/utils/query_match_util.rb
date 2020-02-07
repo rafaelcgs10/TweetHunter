@@ -7,12 +7,16 @@ require 'sorbet-runtime'
 class QueryMatchUtil
   extend T::Sig
 
-  sig { params(string: String).returns(T::Boolean) }
-  def self.valid?(string)
+  sig { params(string: String).returns(T.any(String, T::Boolean)) }
+  def self.clean_query(string)
     Treetop.load 'app/utils/grammars/query'
     parser = QueryGrammarParser.new
-    result = parser.parse(string)
-    !result.nil?
+    parsed = parser.parse(string)
+    if parsed
+      parsed.get_string
+    else
+      false
+    end
   end
 
   sig { params(query: String, string: String).returns(T::Boolean) }
