@@ -234,6 +234,9 @@ GEM
       redis-namespace (~> 1.6)
       sinatra (>= 0.9.2)
       vegas (~> 0.1.2)
+    resque-pool (0.7.1)
+      rake (>= 10.0, < 14.0)
+      resque (>= 1.22, < 3)
     resque-scheduler (4.4.0)
       mono_logger (~> 1.0)
       redis (>= 3.3)
@@ -406,6 +409,7 @@ DEPENDENCIES
   redis (~> 3.3)
   rename
   resque
+  resque-pool
   resque-scheduler
   rspec-rails
   rspec_junit_formatter

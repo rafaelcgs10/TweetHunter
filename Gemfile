@@ -89,3 +89,5 @@ gem 'pry'
 gem 'pry-doc'
 gem 'pry-rails', :group => :development
 gem 'method_source'
+
+gem 'resque-pool'
