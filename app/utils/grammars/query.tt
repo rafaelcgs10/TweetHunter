@@ -1,14 +1,29 @@
 grammar QueryGrammar
   rule expression
     s d:disjunction s
-    { def get_regex; d.get_regex; end }
+    {
+      def get_regex
+        d.get_regex
+      end
+
+      def get_string
+        d.get_string
+      end
+    }
   end
 
   rule disjunction
     conjunction tail:(or s conjunction s)*
-    { def get_regex
-        tail.elements.inject(conjunction.get_regex) do |left, last|
-          '(' + left +'|' + last.conjunction.get_regex + ')'
+    {
+      def get_regex
+        tail.elements.inject(conjunction.get_regex) do |e, last|
+          '(' + e +'|' + last.conjunction.get_regex + ')'
+        end
+      end
+
+      def get_string
+        tail.elements.inject(conjunction.get_string) do |e, last|
+          e +' OR ' + last.conjunction.get_string
         end
       end
     }
@@ -16,7 +31,8 @@ grammar QueryGrammar
  
   rule conjunction
     p:primitive tail:(and s primitive s)*
-    { def get_regex
+    {
+      def get_regex
         if tail.empty?
 	  p.get_regex
 	else
@@ -25,13 +41,25 @@ grammar QueryGrammar
           end
         end
       end
+
+      def get_string
+        if tail.empty?
+	  p.get_string
+	else
+          tail.elements.inject(p.get_string) do |e, l|
+            e + ' AND ' + l.primitive.get_string
+          end
+        end
+      end
     }
   end
 
   rule primitive
-    '(' expression ')' s { def get_regex; '(' + expression.get_regex + ')'; end }
+    '(' expression ')' s { def get_regex; '(' + expression.get_regex + ')'; end
+                           def get_string; '(' + expression.get_string + ')'; end }
     /
-    tag s { def get_regex; tag.get_regex; end }
+    tag s { def get_regex; tag.get_regex; end 
+            def get_string; tag.get_string; end }
   end
   
   rule and
@@ -44,8 +72,13 @@ grammar QueryGrammar
 
   rule tag
     '#' t:([[:alnum:]_]+) s
-    { def get_regex
+    {
+      def get_regex
         "\\B#" + t.text_value + "\\b"
+      end
+
+      def get_string
+        "#" + t.text_value
       end
     }
   end

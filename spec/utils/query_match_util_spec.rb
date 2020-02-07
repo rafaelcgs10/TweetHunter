@@ -4,24 +4,22 @@
 require 'rails_helper'
 
 RSpec.describe QueryMatchUtil do
-  context 'valid? function' do
+  context 'clean_query function' do
     it('should fail because is not hashtag') do
-      result = QueryMatchUtil.valid? 'nop'
-      expect(result).to eq(false)
+      expect(QueryMatchUtil.clean_query('nop')).to eq(false)
     end
 
-    it('should fail because is not empty') do
-      result = QueryMatchUtil.valid? ''
-      expect(result).to eq(false)
+    it('should fail because is empty') do
+      expect(QueryMatchUtil.clean_query('')).to eq(false)
     end
 
     it('should fail because is nil') do
-      expect { QueryMatchUtil.valid?(nil) }.to raise_error(TypeError)
+      expect { QueryMatchUtil.clean_query(nil) }.to raise_error(TypeError)
     end
 
     it('should be successful because is a hashtag') do
-      result = QueryMatchUtil.valid? '#car AND (#boat OR #airplane)'
-      expect(result).to eq(true)
+      result = QueryMatchUtil.clean_query ' #car  AND   (#boat OR  #airplane ) '
+      expect(result).to eq('#car AND (#boat OR #airplane)')
     end
   end
 
