@@ -1,15 +1,19 @@
 import consumer from './consumer'
 var subscription = null
+var pageNum = null
+var hashtagDivId = null
+var params = null
 
 $(document).on('turbolinks:load', function () {
-  const params = new window.URLSearchParams(window.location.search)
+  params = new window.URLSearchParams(window.location.search)
   if (subscription) {
-    console.log('unsub')
     consumer.subscriptions.remove(subscription)
+    subscription = null
   }
-  const pageNum = params.get('page')
-  const hashtagId = $('#hashtag').getAttribute('data-hashtag-id')
-  if (hashtagId && (pageNum === 1 || pageNum === null)) {
+  pageNum = params.get('page')
+  hashtagDivId = document.getElementById('hashtag')
+  if (hashtagDivId && (pageNum === '1' || pageNum === null)) {
+    var hashtagId = hashtagDivId.getAttribute('data-hashtag-id')
     subscription = consumer
       .subscriptions
       .create({ channel: 'TweetsChannel', id: hashtagId }, {
