@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function () {
 	    },
 
 	    received(data) {
-		$('#tweets-card').prepend( data.content)
+		$('#tweets-card').prepend(data.content)
 	    }
 	});
 	this.subscription = subscription;
