@@ -3,7 +3,6 @@
 
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 RSpec.feature 'Hashtags', type: :feature do
   context 'create new hashtag' do
     scenario 'should create' do
@@ -88,4 +87,3 @@ RSpec.feature 'Hashtags', type: :feature do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength

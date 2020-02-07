@@ -17,3 +17,8 @@ AllCops:
     - 'db/**/*'
     - 'tmp/**/*'
 
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'

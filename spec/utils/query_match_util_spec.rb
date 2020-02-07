@@ -3,7 +3,6 @@
 
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 RSpec.describe QueryMatchUtil do
   context 'valid? function' do
     it('should fail because is not hashtag') do
@@ -59,4 +58,3 @@ RSpec.describe QueryMatchUtil do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength
