@@ -82,8 +82,6 @@ You may customize who is the user in `config/database.yml`, but you may also ski
 
 * Bootstrap
 
+* Sorbet
+
 * Heroku
-
-## Known issues:
-
-* The Action Cable, which updates tweets, continues to send tweets even if the user is in another page besides the first.
