@@ -1,24 +1,31 @@
-import consumer from "./consumer"
-
+import consumer from './consumer'
+var subscription = null
+var pageNum = null
+var hashtagDivId = null
+var params = null
 
 $(document).on('turbolinks:load', function () {
-    const params = new window.URLSearchParams(window.location.search);
-    if(this.subscription) {
-	consumer.subscriptions.remove(this.subscription);
-    }
+  params = new window.URLSearchParams(window.location.search)
+  if (subscription) {
+    consumer.subscriptions.remove(subscription)
+    subscription = null
+  }
+  pageNum = params.get('page')
+  hashtagDivId = document.getElementById('hashtag')
+  if (hashtagDivId && (pageNum === '1' || pageNum === null)) {
+    var hashtagId = hashtagDivId.getAttribute('data-hashtag-id')
+    subscription = consumer
+      .subscriptions
+      .create({ channel: 'TweetsChannel', id: hashtagId }, {
+        connected () {
+        },
 
-    if($('#hashtag').attr('data-hashtag-id') && (params.get('page') == 1 || params.get('page') == null)) {
-	const subscription = consumer.subscriptions.create({channel: "TweetsChannel", id:$('#hashtag').attr('data-hashtag-id')}, {
-	    connected() {
-	    },
+        disconnected () {
+        },
 
-	    disconnected() {
-	    },
-
-	    received(data) {
-		$('#tweets-card').prepend(data.content)
-	    }
-	});
-	this.subscription = subscription;
-    }
+        received (data) {
+          $('#tweets-card').prepend(data.content)
+        }
+      })
+  }
 })
