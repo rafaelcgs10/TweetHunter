@@ -101,16 +101,12 @@ jobs:
       
       - restore_cache:
           keys:
-            - sorbet-{{ checksum "Gemfile.lock" }}
-            - sorbet-
+            - rails-demo-bundle-v1-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v1-
   
       - run:
           name: Bundle Install
           command: gem install bundler:2.1.2 && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
-      - save_cache:
-          key: sorbet-{{ checksum "Gemfile" }}
-          paths:
-            - sorbet
 
       - run:
           name: Type Check with Sorbet
